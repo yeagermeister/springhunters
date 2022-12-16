@@ -1,3 +1,7 @@
 .gradient-custom {
-    background: linear-gradient(to right, rgba(168, 182, 240, 0.5), rgba(44, 11, 77, 0.5))
+    background: linear-gradient(to right, rgba(141, 219, 238, 0.5), rgba(58, 202, 238, 0.5))
+  }
+
+  .text-color {
+    color: black;
   }
