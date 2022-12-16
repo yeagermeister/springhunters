@@ -1,4 +1,31 @@
 
+// Replace YOUR_API_KEY with your actual API key
+const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
+
+// Replace latitude and longitude with the coordinates of the location you want to show on the map
+const latitude = 37.4224764;
+const longitude = -122.0842499;
+
+function initMap() {
+  // Create a new map and center it on the specified coordinates
+  const map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 8,
+    center: {lat: latitude, lng: longitude}
+  });
+
+  // Add a marker to the map at the specified coordinates
+  const marker = new google.maps.Marker({
+    position: {lat: latitude, lng: longitude},
+    map: map
+  });
+}
+
+// Load the Google Maps API with the specified API key
+const script = document.createElement('script');
+script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk&callback=initMap`;
+document.head.appendChild(script);
+
+
 // Initialize the map when the page is loaded
 window.onload = function() {
     initMap();
@@ -16,3 +43,4 @@ window.onload = function() {
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
   }
 //test
+
