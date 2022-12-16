@@ -8,15 +8,17 @@
 			href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Merriweather:wght@700&display=swap"
 			rel="stylesheet"
 		/> -->
-		<link rel="stylesheet" href="./assets/css/jass.css" />
-		<link rel="stylesheet" href="./assets/css/style.css" />
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+		<script type="module" src="./Assets/js/script.js"></script>
+		<link rel="stylesheet" href="./Assets/css/jass.css" />
+		<link rel="stylesheet" href="./Assets/css/style.css" />
 	</head>
 	<!-- col-sm-12 -->
 	<body>
-		<header class="gradient-custom bg-primary w-100 flex-row justify-center" >
-			<h1 class="flex-column col-9  align-left p-5">Springs and Swimming Holes of Florida</h1>
-			<div class="flex-column col-3 p-5 align-right">
-				<a href="./index.html">Home</a>
+		<header class="gradient-custom bg-primary w-100 flex-row" >
+			<h1 class="col-9 justify-flex-start">Springs and Swimming Holes of Florida</h1>
+			<div class="col-3 justify-flex-end">
+				<a class="text-color" href="./index.html">Home</a>
 				<!-- Dropdown to select another swimming hole -->
 			</div>
 
@@ -47,9 +49,8 @@
 				<article id="restaurants" class="bg-link">Restaurants</article>
 			</section>
 		</main>
-		<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk&callback=initMap&v=weekly">
-	</script>
-		<script  src="./assets/js/script.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk&v=weekly">
+		</script>
+		<script src="./Assets/js/script.js"></script>
 	</body>
 </html>
