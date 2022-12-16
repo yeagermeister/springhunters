@@ -27,4 +27,4 @@ window.onload = function() {
     // Create the map
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
   }
->>>>>>> main
+
