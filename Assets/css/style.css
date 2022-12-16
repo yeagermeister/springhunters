@@ -2,12 +2,32 @@
     background: linear-gradient(to right, rgba(141, 219, 238, 0.5), rgba(58, 202, 238, 0.5))
   }
 
-  .text-color {
+  .springs-list li {
     color: black;
-    background: linear-gradient(to right, rgba(168, 182, 240, 0.5), rgba(44, 11, 77, 0.5))
+    list-style-type: none;
   }
 
   .map{
     height:400px;
     width:100%;
   }
+
+select {
+  background-color: white;
+  border: thin solid black;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+}
+
+.springs-container{
+  border-radius: 4px;
+  margin-top: 2%;
+}
+
+.mt-3 {
+  margin-top: .3em;
+}
+  

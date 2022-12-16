@@ -1,6 +1,10 @@
 
 // Replace YOUR_API_KEY with your actual API key
+// *****************************  Change this to GOOGLE_API_KEY ******************
+// **********   We wil have 2 other API keys to define ***************************
+// ******************************************************************************* 
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
+
 
 // Replace latitude and longitude with the coordinates of the location you want to show on the map
 const latitude = 37.4224764;
