@@ -4,4 +4,10 @@
 
   .text-color {
     color: black;
+    background: linear-gradient(to right, rgba(168, 182, 240, 0.5), rgba(44, 11, 77, 0.5))
+  }
+
+  .map{
+    height:400px;
+    width:100%;
   }
