@@ -30,4 +30,30 @@ select {
 .mt-3 {
   margin-top: .3em;
 }
+
+.springcard{
+  border-radius: 3px;
+  padding: 5px;
+  width: 27%;
+}
+
+.springcard h2{
+  font-size: x-large;
+}
   
+ul {
+  list-style-type: none;
+}
+
+li {
+  font-size: small;
+}
+
+.wicon {
+  float: right;
+}
+
+.card-image{
+  height: 250px;
+  width: 329px;
+}
