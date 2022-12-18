@@ -26,6 +26,11 @@ body {
  */
 main {
 	display: block;
+	position: fixed;
+}
+
+.aside {
+
 }
 
 /**
@@ -1177,6 +1182,7 @@ label form [type="radio"] {
 }
 
 /* FLEX CONTENT */
+
 .flex-row {
 	display: flex;
 	flex-direction: row;
@@ -1187,7 +1193,7 @@ label form [type="radio"] {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	margin: 10px;
+	margin: 25px;
 	padding: 150px;
 }
 
