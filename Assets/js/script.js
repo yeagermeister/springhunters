@@ -6,6 +6,47 @@
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Replace latitude and longitude with the coordinates of the location you want to show on the map
 const latitude = 37.4224764;
 const longitude = -122.0842499;
