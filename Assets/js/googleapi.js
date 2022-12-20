@@ -38,13 +38,13 @@ window.onload = function() {
     // Set up the map options
     const mapOptions = {
       zoom: 10,
-      center: new google.maps.LatLng(latitude, longitude)
+      center: new google.maps.LatLng(28.7022, 81.4188)
     };
     // Create the map
     const map = new google.maps.Map(mapId, mapOptions);
     // Add a marker to the map at the specified coordinates
     const marker = new google.maps.Marker({
-      position: {lat: latitude, lng: longitude},
+      position: {lat: 28.7022, lng: 81.4188},
       map: map
     });
   }
