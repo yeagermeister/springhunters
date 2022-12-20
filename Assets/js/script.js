@@ -96,6 +96,42 @@ const weekiWacheeSprings = {
 
 const parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings];
 
+// Get DOM elements
+const modal = document.getElementById("myModal");
+const btnNew = document.getElementById("btnNew");
+const close = document.getElementsByClassName("close")[0];
+
+// Add event listeners to open and close modal
+btnNew.addEventListener("click", function() {
+  modal.style.display = "block";
+});
+close.addEventListener("click", function() {
+  modal.style.display = "none";
+});
+
+// Close modal when user clicks outside of it
+window.addEventListener("click", function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
+
+// Add event listener to dropdown menu
+const dropdown = document.getElementById("dropdown");
+dropdown.addEventListener("change", function() {
+  // Handle selection of dropdown menu options
+  const selectedOption = dropdown.value;
+  if (selectedOption === "CSS SELECT arrow (round)") {
+    // Add round CSS to dropdown menu
+    dropdown.classList.add("round");
+  } else if (selectedOption === "No external background image") {
+    // Remove external background image from dropdown menu
+    dropdown.style.backgroundImage = "none";
+  } else if (selectedOption === "No wrapper") {
+    // Remove wrapper element from dropdown menu
+    dropdown.parentNode.removeChild(dropdown);
+  }
+});
 
 
 
@@ -200,6 +236,7 @@ function initMap() {
 const script = document.createElement('script');
 script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk&callback=initMap`;
 document.head.appendChild(script);
+
 
 
 
