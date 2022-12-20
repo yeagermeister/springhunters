@@ -12,6 +12,7 @@
 		
 		<link rel="stylesheet" href="./Assets/css/jass.css" />
 		<link rel="stylesheet" href="./Assets/css/style.css" />
+		<link rel="stylesheet" href="./Assets/css/temp.css" />
 	</head>
 
 	<body>
@@ -36,7 +37,7 @@
 		</header>
 
 		<main class="flex-row">
-			<aside id="description" class="col-auto col-3 p-5 align-left bg-info springs-container">
+			<aside id="description" class="col-3 p-5 align-left bg-info springs-container">
 				<h3 id="parkname">Parkname</h3>
 				<ul class="springs-list">
 					<li id="picture" alt="picture of the spring">Image<!-- img needs added via js --></li>
@@ -57,13 +58,26 @@
 				<article id="map" class="bg-danger">Map</article>
 				<article id="restaurants" class="bg-link">Restaurants</article>
 			</section>
+			<button id="btnNew">Add a new spring or swimming hole</button>
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+			<!-- Modal content -->
+			<div class="modal-content">
+			<span class="close">&times;</span>
+			<p>Some text in the Modal..</p>
+			</div>
+  
+  </div>
 		</main>
+
 		
 		<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk&v=weekly">
 		</script>
 		<script defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk&libraries=places&callback=initMap">
 	  </script>
+
 		<script type="module" src="./Assets/js/googleapi.js"></script>
 		<script type="module" src="./Assets/js/yelpapi.js"></script>
 		

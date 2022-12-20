@@ -4,10 +4,10 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Springs and swimming holes of Floirda</title>
-		<!-- <link
+		 <link
 			href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Merriweather:wght@700&display=swap"
 			rel="stylesheet"
-		/> -->
+		/> 
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 	
 		<link rel="stylesheet" href="./Assets/css/jass.css" />
@@ -15,12 +15,13 @@
 	</head>
 
 	<body>
-		<header class="gradient-custom bg-primary w-100 flex-row" >
+		<header class="gradient-custom bg-primary w-100 flex-row">
 			<h1 class="col-8">Springs and Swimming Holes of Florida</h1>
+			<a href="./index.html">Home</a>
 		</header>
 
 		<main class="flex-row">
-			<aside id="description" class="col-3 p-4 align-left bg-info springs-container">
+			<aside id="description" class="bg springs-container">
 				<h3 id="filterOption">Filter</h3>
 				<ul>
 					<li id="parkName">State Park</li>
@@ -28,14 +29,14 @@
 					<li id="campinAllowed">Camping on Site</li>
 					<li id="gatorDanger">Gator Danger</li>
 					<li id="scubaDiving">Scuba Diving</li>
-					<li id="pricingFee">Free Admission(not including camping)</li>test
+					<li id="pricingFee">Free Admission(not including camping)</li>
 					<li id="zipCode">Enter Zipcode</li>
 				</ul>
 			</aside>
 			<section class="flex-column col-8 p-5 align-left springs-container">
 				<div class="flex-row">
 					<div class="springcard bg-light">
-						<h2 class="text-primary">Wekiwa Springs State Park</h2>
+						<h2 class="text-primary"><a href="./springs.html">Wekiwa Springs State Park</a></h2>
 						<p>Wekiwa Springs State Park is a 7,000-acre Florida State Park in Apopka, Florida. With emerald springs feeding the Wekiwa River and lush tropical hammocks, this unique park just minutes from downtown Orlando is perfect for observing abundant wildlife or cooling off on a summer day</p>
 						<img class="card-image" src="./Assets/images/Wekiwa-Springs-State-Park-FL.jpg" alt="Picture of Wekiwa Springs">
 						<p>
@@ -47,130 +48,119 @@
 						</p>
 					</div>
 
+					
+					<div class="springcard bg-light">
+						<h2 class="text-primary">Silver Springs state Park</h2>
+						<p>The 4,000-acre Silver Springs State Park encompasses not only the springs, but the entire 5-mile Silver River and surrounding sandhill forest.</p>
+						<img class="card-image" src="./Assets/images/Silver-springs-bill-belleville-credit.jpg" alt="Picture of Silver Springs">
+						<p>
+							<span id="distance"></span>
+							miles away. 
+							<span class="wicon">
+							<!-- <img>Embedd the image for the weather icon here after we get the api fgured out</img> -->
+							</span>
+						</p>
+					</div>
 
+					<div class="springcard bg-light">
+						<h2 class="text-primary">Ginnie Springs Outdoors</h2>
+						<p>From innertubes, to kayaks, to paddleboards and canoes there are many ways to experience Ginnie.</p>
+						<img class="card-image" src="./Assets/images/Ginnie-Springs.jpg" alt="Picture of Ginnie Springs">
+						<p>
+							<span id="distance"></span>
+							miles away. 
+							<span class="wicon">
+							<!-- <img>Embedd the image for the weather icon here after we get the api fgured out</img> -->
+							</span>
+						</p>
+					</div>
 
-		<div class="col-3 col-md-3 flex-column align-center bg-light p-4">
-			<h2 class="text-primary">Silver Springs State Park</h2>
-				<ul>
-				<li id="picture" alt="picture of the spring"></li>
-				</ul>
-			
-		</div>
+					<div class="springcard bg-light">
+						<h2 class="text-primary">Ichetucknee Springs State Park</h2>
+						<p>Ichetucknee Springs State Park is a 2,669-acre wildlife haven where beaver, otter, gar, softshell turtle, wild turkey, wood duck and limpkin all find a home.</p>
+						<img class="card-image" src="./Assets/images/ichetucknee-blue_hole_springs-16.jpg" alt="Picture of Ichetucknee Springs">
+						<p>
+							<span id="distance"></span>
+							miles away. 
+							<span class="wicon">
+							<!-- <img>Embedd the image for the weather icon here after we get the api fgured out</img> -->
+							</span>
+						</p>
+					</div>
 
-		<div class="col-3 col-md-3 flex-column align-center bg-light p-5">
-			<h2 class="text-primary">Ginnie Springs Outdoors</h2>
-				<form id="search-form" class="form w-100">
-					<input
-						id="search-input"
-						class="form-input w-100"
-						type="text"
-						placeholder="Search!"
-							/>
-					</form>
-						</div>
-			
-						<div class="col-3 col-md-3 flex-column align-center bg-light p-4">
-							<h2 class="text-primary">Itchetucknee Springs State Park
-								<li id="picture" alt="picture of the spring"></li>
-							</h2>
-								<form id="search-form" class="form w-100">
-									<input
-										id="search-input"
-										class="form-input w-100"
-										type="text"
-										placeholder="Search!"
-										/>
-										</form>
-						</div>
-						
-						<div class="col-3 col-md-3 flex-column align-center bg-light p-4">
-							<h2 class="text-primary">Madison Springs State Park
-								<li id="picture" alt="picture of the spring"></li>
-							</h2>
-								<form id="search-form" class="form w-100">
-									<input
-										id="search-input"
-										class="form-input w-100"
-										type="text"
-										placeholder="Search!"
-										/>
-								</form>
-						</div>
-						
-						<div class="col-3 col-md-3 flex-column align-center bg-light p-4">
-							<h2 class="text-primary">Manatee Springs State Park
-								<li id="picture" alt="picture of the spring"></li>
-							</h2>
-								<form id="search-form" class="form w-100">
-									<input
-										id="search-input"
-										class="form-input w-100"
-										type="text"
-										placeholder="Search!"
-										/>
-								</form>
-						</div>
-						<div class="col-3 col-md-3 flex-column align-center bg-light p-4">
-							<h2 class="text-primary">Ponce De Leon Springs State Park
-								<li id="picture" alt="picture of the spring"></li>
-							</h2>
-								<form id="search-form" class="form w-100">
-									<input
-										id="search-input"
-										class="form-input w-100"
-										type="text"
-										placeholder="Search!"
-									/>
-								</form>
-						</div>
-						
-						<div class="col-3 col-md-3 flex-column align-center bg-light p-4">
-							<h2 class="text-primary">Blue Spring State Park
-								<li id="picture" alt="picture of the spring"></li>
-							</h2>
-								<form id="search-form" class="form w-100">
-									<input
-										id="search-input"
-										class="form-input w-100"
-										type="text"
-										placeholder="Search!"
-										/>
-								</form>
-						</div>
-				
-						<div class="col-3 col-md-3 flex-column align-center bg-light p-4">
-							<h2 class="text-primary">Blue Spring State Park
-								<li id="picture" alt="picture of the spring"></li>
-							</h2>
-								<form id="search-form" class="form w-100">
-									<input
-										id="search-input"
-										class="form-input w-100"
-										type="text"
-										placeholder="Search!"
-										/>
-								</form>
-						</div>
-				
-						<div class="col-3 col-md-3 flex-column align-center bg-light p-4">
-							<h2 class="text-primary">Wes Skiles Peacock Springs State Park
-								<li id="picture" alt="picture of the spring"></li>
-							</h2>
-								<form id="search-form" class="form w-100">
-									<input
-										id="search-input"
-										class="form-input w-100"
-										type="text"
-										placeholder="Search!"
-										/>
-								</form>
-						</div>
-			</section>
-		</main>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk&v=weekly">
-		</script>
+					<div class="springcard bg-light">
+						<h2 class="text-primary">Madison Blue Spring State Park</h2>
+						<p>This crystal-clear, first-magnitude spring is a popular spot for swimming and cave diving.</p>
+						<img class="card-image" src="./Assets/images/14503706461_c2c1251520_b.jpg" alt="Picture of Madison Spring">
+						<p>
+							<span id="distance"></span>
+							miles away. 
+							<span class="wicon">
+							<!-- <img>Embedd the image for the weather icon here after we get the api fgured out</img> -->
+							</span>
+						</p>
+					</div>
+					
+					<div class="springcard bg-light">
+						<h2 class="text-primary">Manatee Springs State Park</h2>
+						<p>This makes it a popular cooling-off spot and a great place to stroll on the park boardwalk and gaze into watery depths. True to its namesake, manatees can be seen in the cooler months, and birds, mammals and fish are spotted year-round.</p>
+						<img class="card-image" src="./Assets/images/fls-1006-manatee-at-homosassa.jpg" alt="Picture of Manatee Spring">
+						<p>
+							<span id="distance"></span>
+							miles away. 
+							<span class="wicon">
+							<!-- <img>Embedd the image for the weather icon here after we get the api fgured out</img> -->
+							</span>
+						</p>
+					</div>
+					
+					<div class="springcard bg-light">
+						<h2 class="text-primary">Ponce De Leon Springs State Park</h2>
+						<p>Visitors can take a leisurely walk along two self-guided nature trails through a lush, hardwood forest and learn about the local ecology and wildlife.</p>
+						<img class="card-image" src="./Assets/images/Ponce-DeLeon-Springs.jpg" alt="Picture of Ponce De Leon Spring">
+						<p>
+							<span id="distance"></span>
+							miles away. 
+							<span class="wicon">
+							<!-- <img>Embedd the image for the weather icon here after we get the api fgured out</img> -->
+							</span>
+						</p>
+					</div>
+					
+					<div class="springcard bg-light">
+						<h2 class="text-primary">Blue Spring State Park</h2>
+						<p>State park offering a variety of outdoor activities including camping, hiking, canoeing, fishing, boating, snorkeling and scuba diving.</p>
+						<img class="card-image" src="./Assets/images/blue-spring-single-manatee.jpg" alt="Picture of Blue Spring">
+						<p>
+							<span id="distance"></span>
+							miles away. 
+							<span class="wicon">
+							<!-- <img>Embedd the image for the weather icon here after we get the api fgured out</img> -->
+							</span>
+						</p>
+					</div>
+					
+					<div class="springcard bg-light">
+						<h2 class="text-primary">Wes Skiles Peacock Springs State Park</h2>
+						<p>The park features one of the longest underwater cave systems in the continental United States.</p>
+						<img class="card-image" src="./Assets/images/entrance to springs.jpg" alt="Picture of Wes Skiles Peacock Springs">
+						<p>
+							<span id="distance"></span>
+							miles away. 
+							<span class="wicon">
+							<!-- <img>Embedd the image for the weather icon here after we get the api fgured out</img> -->
+							</span>
+						</p>
+					</div>	
+					
+			</div></section>
+		</main>	
+</body>
+
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk&v=weekly"></script>
 		<script type="module" src="./Assets/js/yelpapi.js"></script>
 		<script type="module" src="./Assets/js/googleapi.js"></script>
+		<script type="module" src="./Assets/js/weather.js"></script>
 		<script type="module" src="./Assets/js/script.js"></script>
 	</body>
 </html>
