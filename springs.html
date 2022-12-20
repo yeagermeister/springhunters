@@ -12,6 +12,7 @@
 		
 		<link rel="stylesheet" href="./Assets/css/jass.css" />
 		<link rel="stylesheet" href="./Assets/css/style.css" />
+		<link rel="stylesheet" href="./Assets/css/temp.css" />
 	</head>
 
 	<body>
@@ -36,7 +37,7 @@
 		</header>
 
 		<main class="flex-row">
-			<aside id="description" class="col-auto col-3 p-5 align-left bg-info springs-container">
+			<aside id="description" class="col-3 p-5 align-left bg-info springs-container">
 				<h3 id="parkname">Parkname</h3>
 				<ul class="springs-list">
 					<li id="picture" alt="picture of the spring">Image<!-- img needs added via js --></li>
@@ -56,11 +57,36 @@
 				<article id="weather" class="bg-light">Weather</article>
 				<article id="map" class="bg-danger">Map</article>
 				<article id="restaurants" class="bg-link">Restaurants</article>
-			</section>
+			</section>=
+			<button id="btnNew">Add a new spring or swimming hole</button>
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span class="close" id="close-modal">&times;</span>
+				<p>Please enter the information below to add a new spring to the site.</p>
+				<p><label for="springname">Spring Name:</label></p>
+				<p><input type="text" id="springname"/></p>
+				<p><label for="description">Description of the spring:</label></p>
+				<p><input type="text" id="description"/></p>
+				<p><label for="camping">Camping allowed?</label>
+				<input type="checkbox" ic="camping"/></p>
+				<p><label for="petfriendly">Pets allowed?</label>
+				<input type="checkbox" id="petfriendly"/></p>
+				<p><label for="address">Address of the spring:</label></p>
+				<p><input type="text" id="address" /></p>
+				<p><button type="submit">Submit</button></p>
+			</div>
+			<!-- The javascript to get the modal to display needs fixed -->
+  
+  </div>
 		</main>
+
 		
 		<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk&v=weekly&libraries=places">
 		</script>
+
 		<script type="module" src="./Assets/js/googleapi.js"></script>
 		<script type="module" src="./Assets/js/yelpapi.js"></script>
 		
