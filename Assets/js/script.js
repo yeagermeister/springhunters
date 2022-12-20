@@ -20,6 +20,12 @@ const wekiwaSprings = {
   imageUrl: './Assets/images/Wekiwa-Springs-State-Park-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 32712,
+  fees: "6$/car",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: false
 };
 
 const silverSprings = {
