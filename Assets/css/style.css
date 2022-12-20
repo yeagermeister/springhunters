@@ -7,10 +7,12 @@
   list-style-type: none;
 }
 
-.map{
-  height:400px;
-  width:100%;
-}
+
+  #map{
+    height:400px;
+    width:100%;
+  }
+
 
 select {
 background-color: white;
