@@ -7,7 +7,7 @@
   list-style-type: none;
 }
 
-.map{
+#map{
   height:400px;
   width:100%;
 }
@@ -23,8 +23,8 @@ padding: 0.5em 3.5em 0.5em 1em;
 }
 
 .springs-container{
-border-radius: 4px;
 margin-top: 2%;
+border-radius: 20px;
 }
 
 .mt-3 {
@@ -32,9 +32,11 @@ margin-top: .3em;
 }
 
 .springcard{
-border-radius: 3px;
-padding: 5px;
 width: 27%;
+text-align: center;
+border-radius: 20px;
+padding: 5px;
+margin: 15px;
 }
 
 .springcard h2{
@@ -46,7 +48,7 @@ list-style-type: none;
 }
 
 li {
-font-size: small;
+font-size: medium;
 }
 
 .wicon {
@@ -54,6 +56,38 @@ float: right;
 }
 
 .card-image{
-height: 250px;
-width: 329px;
+height: 215px;
+width: 285px;
+border-width: 5px;
+border-style: solid;
+border-color: rgb(181,229,227);
+}
+
+aside {
+  height: 400px;
+  width: 15%;
+  font-family: 'Trebuchet MS';
+  background-color: #1b89bc;
+}
+
+h3 {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+p {
+font-family: 'Trebuchet MS';
+display: block;
+margin-block-start: 1em;
+margin-block-end: 1em;
+margin-inline-start: 0px;
+margin-inline-end: 0px;
+}
+
+body {
+  background-image: ;
 }
