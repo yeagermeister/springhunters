@@ -174,3 +174,53 @@ function performSearch(searchTerm) {
   return [`Result 1 for "${searchTerm}"`, `Result 2 for "${searchTerm}"`];
 }
 //Code above is for index.html//
+
+// Replace YOUR_API_KEY with your actual API key
+const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
