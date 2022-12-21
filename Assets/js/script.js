@@ -12,6 +12,7 @@ const pricingFee = document.querySelector('#pricingFee');
 const zipCode = document.querySelector('#zipCode');
 const main = document.querySelector('main');
 const springCards = document.querySelectorAll('.springcard');
+const dropdownEl = document.querySelector('#dropdown')
 
 // Define parks
 const wekiwaSprings = {
@@ -21,7 +22,7 @@ const wekiwaSprings = {
   distance: '',
   weather: '',
   zipcode: 32712,
-  fees: "6$/car",
+  fees: "$6/car",
   pets: false,
   statepark: true,
   camping: true,
@@ -158,6 +159,7 @@ const weekiWacheeSprings = {
 };
 
 const parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings];
+const dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park"];
 
 // Get DOM elements
 const modal = document.getElementById("myModal");
@@ -174,20 +176,20 @@ navigator.geolocation.getCurrentPosition(function(position) {
   console.log(userLoc.lon)
 });
 
-// Add event listeners to open and close modal
-btnNew.addEventListener("click", function() {
-  modal.style.display = "block";
-});
-close.addEventListener("click", function() {
-  modal.style.display = "none";
-});
+// // Add event listeners to open and close modal
+// btnNew.addEventListener("click", function() {
+//   modal.style.display = "block";
+// });
+// close.addEventListener("click", function() {
+//   modal.style.display = "none";
+// });
 
-// Close modal when user clicks outside of it
-window.addEventListener("click", function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-});
+// // Close modal when user clicks outside of it
+// window.addEventListener("click", function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// });
 
 // Add event listener to dropdown menu
 const dropdown = document.getElementById("dropdown");
@@ -206,9 +208,65 @@ dropdown.addEventListener("change", function() {
   }
 });
 
+console.log(dropdownList.length);
+
+function populateDropdown() {
+  for (let i = 1; i < dropdownList.length; i++) {
+    var optionEl = document.createElement('option');
+    console.log(optionEl);
+    console.log(dropdownList[i]);
+    optionEl.setAttribute('id', 'option-' + i);
+    optionEl.textContent = dropdownList[i];
+    dropdownEl.appendChild(optionEl);
+  }
+} ;
+
 
 function filterParks() {
   // Get the selected filter options
+
+  // const statepark = document.querySelector('#statePark').checked;
+  // const petFriendly = document.querySelector('#petFriendly').checked;
+  // const campingAllowed = document.querySelector('#campingAllowed').checked;
+  // const gatorDanger = document.querySelector('#gatorDanger').checked;
+  // const scubaDiving = document.querySelector('#scubaDiving').checked;
+  // const pricingFee = document.querySelector('#pricingFee').checked;
+  // const zipCode = document.querySelector('#zipCode').value;
+
+  // Get all the spring cards
+  const springCards = document.querySelectorAll('.springcard');
+
+  // Loop through each spring card and check if it meets the selected filter criteria
+  springCards.forEach(card => {
+    const park = window[card.querySelector('h2').textContent.toLowerCase()];
+    let showCard = true;
+
+    if (statepark && !park.statepark) {
+      showCard = false;
+    }
+    if (petFriendly && !park.petFriendly) {
+      showCard = false;
+    }
+    if (campingAllowed && !park.campingAllowed) {
+      showCard = false;
+    }
+    if (gatorDanger && !park.gatorDanger) {
+      showCard = false;
+    }
+    if (scubaDiving && !park.scubaDiving) {
+      showCard = false;
+    }
+    if (pricingFee && park.fees !== 'Free') {
+      showCard = false;
+    }
+    if (zipCode && park.zipcode.toString().indexOf(zipCode) === -1) {
+      showCard = false;
+    }
+
+    // Show or hide the card based on the filter criteria
+    if (showCard) {
+      card.style.display = 'block';
+=======
   const statepark = document.querySelector('#parkNameCheckbox').checked;
   const petFriendly = document.querySelector('#petFriendlyCheckbox').checked;
   const campingAllowed = document.querySelector('#campingAllowedCheckbox').checked;
@@ -236,6 +294,14 @@ function filterParks() {
     }
   });
 }
+
+// document.querySelector('#statePark').addEventListener('change', filterParks);
+// document.querySelector('#petFriendly').addEventListener('change', filterParks);
+// document.querySelector('#campingAllowed').addEventListener('change', filterParks);
+// document.querySelector('#gatorDanger').addEventListener('change', filterParks);
+// document.querySelector('#scubaDiving').addEventListener('change', filterParks);
+// document.querySelector('#pricingFee').addEventListener('change', filterParks);
+// document.querySelector('#zipCode').addEventListener('input', filterParks);
 
 
 const filterOptionCheckboxes = document.querySelectorAll('input[type=checkbox]');
@@ -300,7 +366,7 @@ const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 //finds the users location
 
 
-
+populateDropdown();
 
 
 
