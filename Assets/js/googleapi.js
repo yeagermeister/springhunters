@@ -1,5 +1,6 @@
 // Initialize and add the map
 var mapId = document.getElementById("map");
+var parkName = document.getElementById("parkname")
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 
 
@@ -9,25 +10,32 @@ let wakiwaSprings = {
 }
 let silverSprings = {
     lat: "29.2165",
-    lon: "82.0570",
+    lon: "-82.0570",
 }
 let ginnieSprings = {
     lat: "29.8343",
-    lon: "82.7024",
+    lon: "-82.7024",
 }
 let itchetuckneeSprings = {
     lat: "28.7022",
-    lon: "82.7618",
+    lon: "-82.7618",
 }
 let madisonSprings = {
     lat: "30.4813",
-    lon: "83.2448",
+    lon: "-83.2448",
 }
 let manateeSprings = {
     lat: "29.4975",
-    lon: "82.9758",
+    lon: "-82.9758",
 }
-
+var springnames = new Array(
+  wakiwaSprings,
+  silverSprings,
+  ginnieSprings,
+  itchetuckneeSprings,
+  madisonSprings,
+  manateeSprings
+)
 
 
 window.onload = function() {
