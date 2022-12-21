@@ -21,11 +21,8 @@ const wekiwaSprings = {
   distance: '',
   weather: '',
   zipcode: 32712,
-Tyrone-Bowman-branch
-  fees: "$6/car",
   fees: "6$/car",
   pets: false,
-main
   statepark: true,
   camping: true,
   gatordanger: false,
@@ -212,52 +209,45 @@ dropdown.addEventListener("change", function() {
 
 function filterParks() {
   // Get the selected filter options
-  const statepark = document.querySelector('#parkName').checked;
-  const petFriendly = document.querySelector('#petFriendly').checked;
-  const campingAllowed = document.querySelector('#campingAllowed').checked;
-  const gatorDanger = document.querySelector('#gatorDanger').checked;
-  const scubaDiving = document.querySelector('#scubaDiving').checked;
-  const pricingFee = document.querySelector('#pricingFee').checked;
-  const zipCode = document.querySelector('#zipCode').value;
+  const statepark = document.querySelector('#parkNameCheckbox').checked;
+  const petFriendly = document.querySelector('#petFriendlyCheckbox').checked;
+  const campingAllowed = document.querySelector('#campingAllowedCheckbox').checked;
+  const gatorDanger = document.querySelector('#gatorDangerCheckbox').checked;
+  const scubaDiving = document.querySelector('#scubaDivingCheckbox').checked;
+  const pricingFee = document.querySelector('#pricingFeeCheckbox').checked;
+  const zipCode = document.querySelector('#zipCodeInput').value;
 
-  // Get all the spring cards
-  const springCards = document.querySelectorAll('.springcard');
+  // Loop through the spring cards
+  springCards.forEach(springCard => {
+    // Check if the spring card matches the selected filter options
+    const matchesStatepark = !statepark || springCard.dataset.statepark === 'true';
+    const matchesPetFriendly = !petFriendly || springCard.dataset.petfriendly === 'true';
+    const matchesCampingAllowed = !campingAllowed || springCard.dataset.camping === 'true';
+    const matchesGatorDanger = !gatorDanger || springCard.dataset.gatordanger === 'true';
+    const matchesScubaDiving = !scubaDiving || springCard.dataset.scuba === 'true';
+    const matchesPricingFee = !pricingFee || springCard.dataset.fees === 'Free';
+    const matchesZipCode = !zipCode || springCard.dataset.zipcode === zipCode;
 
-  // Loop through each spring card and check if it meets the selected filter criteria
-  springCards.forEach(card => {
-    const park = window[card.querySelector('h2').textContent.toLowerCase()];
-    let showCard = true;
-
-    if (statepark && !park.statepark) {
-      showCard = false;
-    }
-    if (petFriendly && !park.petFriendly) {
-      showCard = false;
-    }
-    if (campingAllowed && !park.campingAllowed) {
-      showCard = false;
-    }
-    if (gatorDanger && !park.gatorDanger) {
-      showCard = false;
-    }
-    if (scubaDiving && !park.scubaDiving) {
-      showCard = false;
-    }
-    if (pricingFee && park.fees !== 'Free') {
-      showCard = false;
-    }
-    if (zipCode && park.zipcode.toString().indexOf(zipCode) === -1) {
-      showCard = false;
-    }
-
-    // Show or hide the card based on the filter criteria
-    if (showCard) {
-      card.style.display = 'block';
+    // Show or hide the spring card based on whether it matches the selected filter options
+    if (matchesStatepark && matchesPetFriendly && matchesCampingAllowed && matchesGatorDanger && matchesScubaDiving && matchesPricingFee && matchesZipCode) {
+      springCard.style.display = 'block';
     } else {
-      card.style.display = 'none';
+      springCard.style.display = 'none';
     }
   });
 }
+
+
+const filterOptionCheckboxes = document.querySelectorAll('input[type=checkbox]');
+const zipCodeInput = document.querySelector('#zipCodeInput');
+
+filterOptionCheckboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', filterParks);
+});
+
+zipCodeInput.addEventListener('input', filterParks);
+
+
 document.querySelector('#parkName').addEventListener('change', filterParks);
 document.querySelector('#petFriendly').addEventListener('change', filterParks);
 document.querySelector('#campingAllowed').addEventListener('change', filterParks);
