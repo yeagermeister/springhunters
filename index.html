@@ -21,17 +21,44 @@
 		</header>
 
 		<main class="flex-row">
-			<aside id="description" class="bg springs-container">
-				<h3 id="filterOption">Filter</h3>
+			<aside id="search" class="bg mySearch">
+				<h3 id="filterOption">Spring Hunter</h3>
+				<p>Select options below to find your perfect spring:</p>
 				<ul>
-					<li id="parkName">State Park</li>
-					<li id="petFriendly">Pet friendly</li>
-					<li id="campinAllowed">Camping on Site</li>
-					<li id="gatorDanger">Gator Danger</li>
-					<li id="scubaDiving">Scuba Diving</li>
-					<li id="pricingFee">Free Admission(not including camping)</li>
-					<li id="zipCode">Enter Zipcode</li>
+					<li class="mt-3">
+						<input type="checkbox" id="statePark">
+						<label for="statePark">State Park</label>
+					</li>
+					<li class="mt-3">
+						<input type="checkbox" id="petFriendly">
+						<label for="statePark">Pet Friendly</label>
+					</li>
+					<li class="mt-3">
+						<input type="checkbox" id="campingAllowed">
+						<label for="statePark">Camping on site</label>
+					</li>
+					<li class="mt-3">
+						<input type="checkbox" id="gatorDanger" checked>
+						<label for="statePark">Gator Danger</label>
+					</li>
+					<li class="mt-3">
+						<input type="checkbox" id="scubaDiving">
+						<label for="statePark">Scuba Diving</label>
+					</li>
+					<li class="mt-3">
+						<input type="checkbox" id="pricingFee" checked>
+						<label for="statePark">Free Admission</label>
+					</li>
+					<li class="mt-3">
+						<input type="checkbox" id="statePark">
+						<label for="statePark">State Park?</label>
+					</li>
+					<li class="mt-3">
+						<input type="text" id="zipCode">
+						<label for="zipCode">Please enter your zipcode</label>
+					</li>
 				</ul>
+				<button id="btnNew">Add a new spring or swimming hole</button>
 			</aside>
 			<section class="flex-column col-8 p-5 align-left springs-container">
 				<div class="flex-row">
