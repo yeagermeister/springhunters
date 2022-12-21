@@ -22,12 +22,13 @@ const wekiwaSprings = {
   weather: '',
   zipcode: 32712,
   fees: "6$/car",
+  pets: false,
   statepark: true,
   camping: true,
   gatordanger: false,
-  scuba: false,
-  lat: 28.7022,
-  lon:81.4188
+  scuba: false
+  // lat
+  // long
 };
 
 const silverSprings = {
@@ -36,6 +37,12 @@ const silverSprings = {
   imageUrl: './Assets/images/Silver-springs-bill-belleville-credit.jpg',
   distance: '',
   weather: '',
+  zipcode: 34488,
+  fees: "$8/car",
+  statepark: true,
+  camping: true,
+  gatordanger: true,
+  scuba: false,
 };
 
 const rainbowSprings = {
@@ -44,6 +51,12 @@ const rainbowSprings = {
   imageUrl: './Assets/images/Rainbow-Springs-State-Park-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 34432,
+  fees: "$2/person",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: true,
 };
 
 const rockSpringsRun = {
@@ -52,6 +65,12 @@ const rockSpringsRun = {
   imageUrl: './Assets/images/Rock-Springs-Run-State-Reserve-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 32776,
+  fees: "$5/car",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: true,
 };
 
 const ginnieSprings = {
@@ -60,6 +79,12 @@ const ginnieSprings = {
   imageUrl: './Assets/images/Ginnie-Springs-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 32643,
+  fees: "$3/person",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: false
 };
 
 const blueSpring = {
@@ -68,6 +93,12 @@ const blueSpring = {
   imageUrl: './Assets/images/Blue-Spring-State-Park-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 32763,
+  fees: "6$/car",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: false
 };
 
 const deLeonSprings = {
@@ -76,6 +107,12 @@ const deLeonSprings = {
   imageUrl: './Assets/images/DeLeon-Springs-State-Park-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 32130,
+  fees: "6$/car",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: false
 };
 
 const fanningSprings = {
@@ -84,6 +121,12 @@ const fanningSprings = {
   imageUrl: './Assets/images/Fanning-Springs-State-Park-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 32693,
+  fees: "6$/car",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: false
 };
 
 const manateeSprings = {
@@ -92,6 +135,12 @@ const manateeSprings = {
   imageUrl: './Assets/images/Manatee-Springs-State-Park-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 32626,
+  fees: "6$/car",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: false
 };
 
 const weekiWacheeSprings = {
@@ -100,6 +149,12 @@ const weekiWacheeSprings = {
   imageUrl: './Assets/images/Weeki-Wachee-Springs-State-Park-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 34606,
+  fees: "6$/car",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: false
 };
 
 const parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings];
@@ -150,6 +205,59 @@ dropdown.addEventListener("change", function() {
     dropdown.parentNode.removeChild(dropdown);
   }
 });
+
+
+function filterParks() {
+  // Get the selected filter options
+  const statepark = document.querySelector('#parkNameCheckbox').checked;
+  const petFriendly = document.querySelector('#petFriendlyCheckbox').checked;
+  const campingAllowed = document.querySelector('#campingAllowedCheckbox').checked;
+  const gatorDanger = document.querySelector('#gatorDangerCheckbox').checked;
+  const scubaDiving = document.querySelector('#scubaDivingCheckbox').checked;
+  const pricingFee = document.querySelector('#pricingFeeCheckbox').checked;
+  const zipCode = document.querySelector('#zipCodeInput').value;
+
+  // Loop through the spring cards
+  springCards.forEach(springCard => {
+    // Check if the spring card matches the selected filter options
+    const matchesStatepark = !statepark || springCard.dataset.statepark === 'true';
+    const matchesPetFriendly = !petFriendly || springCard.dataset.petfriendly === 'true';
+    const matchesCampingAllowed = !campingAllowed || springCard.dataset.camping === 'true';
+    const matchesGatorDanger = !gatorDanger || springCard.dataset.gatordanger === 'true';
+    const matchesScubaDiving = !scubaDiving || springCard.dataset.scuba === 'true';
+    const matchesPricingFee = !pricingFee || springCard.dataset.fees === 'Free';
+    const matchesZipCode = !zipCode || springCard.dataset.zipcode === zipCode;
+
+    // Show or hide the spring card based on whether it matches the selected filter options
+    if (matchesStatepark && matchesPetFriendly && matchesCampingAllowed && matchesGatorDanger && matchesScubaDiving && matchesPricingFee && matchesZipCode) {
+      springCard.style.display = 'block';
+    } else {
+      springCard.style.display = 'none';
+    }
+  });
+}
+
+
+const filterOptionCheckboxes = document.querySelectorAll('input[type=checkbox]');
+const zipCodeInput = document.querySelector('#zipCodeInput');
+
+filterOptionCheckboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', filterParks);
+});
+
+zipCodeInput.addEventListener('input', filterParks);
+
+
+document.querySelector('#parkName').addEventListener('change', filterParks);
+document.querySelector('#petFriendly').addEventListener('change', filterParks);
+document.querySelector('#campingAllowed').addEventListener('change', filterParks);
+document.querySelector('#gatorDanger').addEventListener('change', filterParks);
+document.querySelector('#scubaDiving').addEventListener('change', filterParks);
+document.querySelector('#pricingFee').addEventListener('change', filterParks);
+document.querySelector('#zipCode').addEventListener('input', filterParks);
+
+// Initialize the filter with no options selected
+filterParks();
 
 
 

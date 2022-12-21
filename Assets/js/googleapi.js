@@ -4,6 +4,7 @@ var parkName = document.getElementById("parkname")
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 
 
+
 let wakiwaSprings = {
    lat: "28.711243",
     lon: "-81.463754",

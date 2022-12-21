@@ -23,7 +23,7 @@ line-height: 1.5em;
 padding: 0.5em 3.5em 0.5em 1em;
 }
 
-.springs-container{
+.springs-container {
 margin-top: 2%;
 border-radius: 20px;
 }
@@ -91,4 +91,11 @@ margin-inline-end: 0px;
 
 body {
 background-size: 50%;
+}
+
+.mySearch{
+  margin: 4.2% 0% 0% 1%;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: rgb(91, 181, 151);
 }
