@@ -21,11 +21,8 @@ const wekiwaSprings = {
   distance: '',
   weather: '',
   zipcode: 32712,
-Tyrone-Bowman-branch
-  fees: "$6/car",
   fees: "6$/car",
   pets: false,
-main
   statepark: true,
   camping: true,
   gatordanger: false,
