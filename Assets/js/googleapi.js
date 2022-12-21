@@ -1,5 +1,6 @@
 // Initialize and add the map
 var mapId = document.getElementById("map");
+var parkName = document.getElementById("parkname")
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 
 
@@ -28,7 +29,14 @@ let manateeSprings = {
     lat: "29.4975",
     lon: "-82.9758",
 }
-
+var springnames = new Array(
+  wakiwaSprings,
+  silverSprings,
+  ginnieSprings,
+  itchetuckneeSprings,
+  madisonSprings,
+  manateeSprings
+)
 
 
 window.onload = function() {
