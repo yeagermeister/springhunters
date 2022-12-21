@@ -3,6 +3,10 @@ var mapId = document.getElementById("map");
 const latitude = 28.6568;
 const longitude = -81.2436;
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
+
+
+
+
 //var wakiwaSprings = new Array(
   //  lat = "28.7022",
     //lon = "-81.4188",
