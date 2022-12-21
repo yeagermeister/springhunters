@@ -22,12 +22,13 @@ const wekiwaSprings = {
   weather: '',
   zipcode: 32712,
   fees: "6$/car",
+  pets: false,
   statepark: true,
   camping: true,
   gatordanger: false,
-  scuba: false,
-  lat: 28.7022,
-  lon:81.4188
+  scuba: false
+  // lat
+  // long
 };
 
 const silverSprings = {

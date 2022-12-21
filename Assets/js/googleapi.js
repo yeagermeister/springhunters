@@ -9,27 +9,27 @@ const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 
 //var wakiwaSprings = new Array(
   //  lat = "28.7022",
-    //lon = "81.4188",
+    //lon = "-81.4188",
 //)
 //var silverSprings = new Array(
 //     lat = "29.2165",
-//     lon = "82.0570",
+//     lon = "-82.0570",
 // )
 // var ginnieSprings = new Array(
 //     lat = "29.8343",
-//     lon = "82.7024",
+//     lon = "-82.7024",
 // )
 // var itchetuckneeSprings = new Array(
 //     lat = "28.7022",
-//     lon = "82.7618",
+//     lon = "-82.7618",
 // )
 // var madisonSprings = new Array(
 //     lat = "30.4813",
-//     lon = "83.2448",
+//     lon = "-83.2448",
 // )
 // var manateeSprings = new Array(
 //     lat = "29.4975",
-//     lon = "82.9758",
+//     lon = "-82.9758",
 // )
 
 
