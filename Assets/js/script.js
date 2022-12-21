@@ -66,19 +66,10 @@ dropdown.addEventListener("change", function() {
 
 console.log(dropdownList.length);
 
-function populateDropdown() {
-  for (let i = 1; i < dropdownList.length; i++) {
-    var optionEl = document.createElement('option');
-    console.log(optionEl);
-    console.log(dropdownList[i]);
-    optionEl.setAttribute('id', 'option-' + i);
-    optionEl.textContent = dropdownList[i];
-    dropdownEl.appendChild(optionEl);
-  }
-} ;
 
 
-function filterParks() {
+
+// function filterParks() {
   // Get the selected filter options
 
   // const statepark = document.querySelector('#statePark').checked;
