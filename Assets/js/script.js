@@ -21,11 +21,17 @@ const wekiwaSprings = {
   distance: '',
   weather: '',
   zipcode: 32712,
+Tyrone-Bowman-branch
   fees: "$6/car",
+  fees: "6$/car",
+  pets: false,
+main
   statepark: true,
   camping: true,
   gatordanger: false,
   scuba: false
+  // lat
+  // long
 };
 
 const silverSprings = {
@@ -161,6 +167,16 @@ const modal = document.getElementById("myModal");
 const btnNew = document.getElementById("btnNew");
 const close = document.getElementsByClassName("close")[0];
 
+navigator.geolocation.getCurrentPosition(function(position) {
+
+  let userLoc = {
+     lat: position.coords.latitude,
+     lon: position.coords.longitude 
+  }
+  console.log(userLoc.lat)
+  console.log(userLoc.lon)
+});
+
 // Add event listeners to open and close modal
 btnNew.addEventListener("click", function() {
   modal.style.display = "block";
@@ -284,6 +300,8 @@ function performSearch(searchTerm) {
 
 // Replace YOUR_API_KEY with your actual API key
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
+//finds the users location
+
 
 
 
