@@ -23,7 +23,6 @@ const wekiwaSprings = {
   weather: '',
   zipcode: 32712,
   fees: "$6/car",
-  fees: "6$/car",
   pets: false,
   statepark: true,
   camping: true,
@@ -225,6 +224,7 @@ function populateDropdown() {
 
 function filterParks() {
   // Get the selected filter options
+
   // const statepark = document.querySelector('#statePark').checked;
   // const petFriendly = document.querySelector('#petFriendly').checked;
   // const campingAllowed = document.querySelector('#campingAllowed').checked;
@@ -266,11 +266,35 @@ function filterParks() {
     // Show or hide the card based on the filter criteria
     if (showCard) {
       card.style.display = 'block';
+=======
+  const statepark = document.querySelector('#parkNameCheckbox').checked;
+  const petFriendly = document.querySelector('#petFriendlyCheckbox').checked;
+  const campingAllowed = document.querySelector('#campingAllowedCheckbox').checked;
+  const gatorDanger = document.querySelector('#gatorDangerCheckbox').checked;
+  const scubaDiving = document.querySelector('#scubaDivingCheckbox').checked;
+  const pricingFee = document.querySelector('#pricingFeeCheckbox').checked;
+  const zipCode = document.querySelector('#zipCodeInput').value;
+
+  // Loop through the spring cards
+  springCards.forEach(springCard => {
+    // Check if the spring card matches the selected filter options
+    const matchesStatepark = !statepark || springCard.dataset.statepark === 'true';
+    const matchesPetFriendly = !petFriendly || springCard.dataset.petfriendly === 'true';
+    const matchesCampingAllowed = !campingAllowed || springCard.dataset.camping === 'true';
+    const matchesGatorDanger = !gatorDanger || springCard.dataset.gatordanger === 'true';
+    const matchesScubaDiving = !scubaDiving || springCard.dataset.scuba === 'true';
+    const matchesPricingFee = !pricingFee || springCard.dataset.fees === 'Free';
+    const matchesZipCode = !zipCode || springCard.dataset.zipcode === zipCode;
+
+    // Show or hide the spring card based on whether it matches the selected filter options
+    if (matchesStatepark && matchesPetFriendly && matchesCampingAllowed && matchesGatorDanger && matchesScubaDiving && matchesPricingFee && matchesZipCode) {
+      springCard.style.display = 'block';
     } else {
-      card.style.display = 'none';
+      springCard.style.display = 'none';
     }
   });
 }
+
 // document.querySelector('#statePark').addEventListener('change', filterParks);
 // document.querySelector('#petFriendly').addEventListener('change', filterParks);
 // document.querySelector('#campingAllowed').addEventListener('change', filterParks);
@@ -278,6 +302,25 @@ function filterParks() {
 // document.querySelector('#scubaDiving').addEventListener('change', filterParks);
 // document.querySelector('#pricingFee').addEventListener('change', filterParks);
 // document.querySelector('#zipCode').addEventListener('input', filterParks);
+
+
+const filterOptionCheckboxes = document.querySelectorAll('input[type=checkbox]');
+const zipCodeInput = document.querySelector('#zipCodeInput');
+
+filterOptionCheckboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', filterParks);
+});
+
+zipCodeInput.addEventListener('input', filterParks);
+
+
+document.querySelector('#parkName').addEventListener('change', filterParks);
+document.querySelector('#petFriendly').addEventListener('change', filterParks);
+document.querySelector('#campingAllowed').addEventListener('change', filterParks);
+document.querySelector('#gatorDanger').addEventListener('change', filterParks);
+document.querySelector('#scubaDiving').addEventListener('change', filterParks);
+document.querySelector('#pricingFee').addEventListener('change', filterParks);
+document.querySelector('#zipCode').addEventListener('input', filterParks);
 
 // Initialize the filter with no options selected
 filterParks();
