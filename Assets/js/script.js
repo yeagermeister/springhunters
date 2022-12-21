@@ -25,7 +25,9 @@ const wekiwaSprings = {
   statepark: true,
   camping: true,
   gatordanger: false,
-  scuba: false
+  scuba: false,
+  lat: 28.7022,
+  lon:81.4188
 };
 
 const silverSprings = {
@@ -177,6 +179,15 @@ function performSearch(searchTerm) {
 
 // Replace YOUR_API_KEY with your actual API key
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
+//finds the users location
+navigator.geolocation.getCurrentPosition(function(position) {
+
+  let userLoc = {
+     lat: position.coords.latitude,
+     lon: position.coords.longitude 
+  }
+  
+});
 
 
 
