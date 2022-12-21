@@ -21,7 +21,7 @@ const wekiwaSprings = {
   distance: '',
   weather: '',
   zipcode: 32712,
-  fees: "6$/car",
+  fees: "$6/car",
   statepark: true,
   camping: true,
   gatordanger: false,
@@ -34,6 +34,12 @@ const silverSprings = {
   imageUrl: './Assets/images/Silver-springs-bill-belleville-credit.jpg',
   distance: '',
   weather: '',
+  zipcode: 34488,
+  fees: "$8/car",
+  statepark: true,
+  camping: true,
+  gatordanger: true,
+  scuba: false,
 };
 
 const rainbowSprings = {
@@ -42,6 +48,12 @@ const rainbowSprings = {
   imageUrl: './Assets/images/Rainbow-Springs-State-Park-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 34432,
+  fees: "$2/person",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: true,
 };
 
 const rockSpringsRun = {
@@ -50,6 +62,12 @@ const rockSpringsRun = {
   imageUrl: './Assets/images/Rock-Springs-Run-State-Reserve-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 32776,
+  fees: "$5/car",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: true,
 };
 
 const ginnieSprings = {
@@ -58,6 +76,12 @@ const ginnieSprings = {
   imageUrl: './Assets/images/Ginnie-Springs-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 32643,
+  fees: "$3/person",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: false
 };
 
 const blueSpring = {
@@ -66,6 +90,12 @@ const blueSpring = {
   imageUrl: './Assets/images/Blue-Spring-State-Park-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 32763,
+  fees: "6$/car",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: false
 };
 
 const deLeonSprings = {
@@ -74,6 +104,12 @@ const deLeonSprings = {
   imageUrl: './Assets/images/DeLeon-Springs-State-Park-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 32130,
+  fees: "6$/car",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: false
 };
 
 const fanningSprings = {
@@ -82,6 +118,12 @@ const fanningSprings = {
   imageUrl: './Assets/images/Fanning-Springs-State-Park-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 32693,
+  fees: "6$/car",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: false
 };
 
 const manateeSprings = {
@@ -90,6 +132,12 @@ const manateeSprings = {
   imageUrl: './Assets/images/Manatee-Springs-State-Park-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 32626,
+  fees: "6$/car",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: false
 };
 
 const weekiWacheeSprings = {
@@ -98,6 +146,12 @@ const weekiWacheeSprings = {
   imageUrl: './Assets/images/Weeki-Wachee-Springs-State-Park-FL.jpg',
   distance: '',
   weather: '',
+  zipcode: 34606,
+  fees: "6$/car",
+  statepark: true,
+  camping: true,
+  gatordanger: false,
+  scuba: false
 };
 
 const parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings];
@@ -138,6 +192,66 @@ dropdown.addEventListener("change", function() {
     dropdown.parentNode.removeChild(dropdown);
   }
 });
+
+
+function filterParks() {
+  // Get the selected filter options
+  const statepark = document.querySelector('#parkName').checked;
+  const petFriendly = document.querySelector('#petFriendly').checked;
+  const campingAllowed = document.querySelector('#campingAllowed').checked;
+  const gatorDanger = document.querySelector('#gatorDanger').checked;
+  const scubaDiving = document.querySelector('#scubaDiving').checked;
+  const pricingFee = document.querySelector('#pricingFee').checked;
+  const zipCode = document.querySelector('#zipCode').value;
+
+  // Get all the spring cards
+  const springCards = document.querySelectorAll('.springcard');
+
+  // Loop through each spring card and check if it meets the selected filter criteria
+  springCards.forEach(card => {
+    const park = window[card.querySelector('h2').textContent.toLowerCase()];
+    let showCard = true;
+
+    if (statepark && !park.statepark) {
+      showCard = false;
+    }
+    if (petFriendly && !park.petFriendly) {
+      showCard = false;
+    }
+    if (campingAllowed && !park.campingAllowed) {
+      showCard = false;
+    }
+    if (gatorDanger && !park.gatorDanger) {
+      showCard = false;
+    }
+    if (scubaDiving && !park.scubaDiving) {
+      showCard = false;
+    }
+    if (pricingFee && park.fees !== 'Free') {
+      showCard = false;
+    }
+    if (zipCode && park.zipcode.toString().indexOf(zipCode) === -1) {
+      showCard = false;
+    }
+
+    // Show or hide the card based on the filter criteria
+    if (showCard) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+document.querySelector('#parkName').addEventListener('change', filterParks);
+document.querySelector('#petFriendly').addEventListener('change', filterParks);
+document.querySelector('#campingAllowed').addEventListener('change', filterParks);
+document.querySelector('#gatorDanger').addEventListener('change', filterParks);
+document.querySelector('#scubaDiving').addEventListener('change', filterParks);
+document.querySelector('#pricingFee').addEventListener('change', filterParks);
+document.querySelector('#zipCode').addEventListener('input', filterParks);
+
+// Initialize the filter with no options selected
+filterParks();
 
 
 
