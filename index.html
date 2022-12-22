@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="./Assets/css/style.css" />
 	</head>
 
-	<body background="./Assets/images/pexels-h-emre-2776479.jpg">
+	<body>
 		<header class="gradient-custom bg-primary w-100 flex-row">
 			<h1 class="col-8">Springs and Swimming Holes of Florida</h1>
 			<a href="./index.html">Home</a>
@@ -55,7 +55,10 @@
 					</li>
 					<li class="mt-3">
 						<input type="text" id="zipCode">
-						<label for="zipCode">Please enter your zipcode</label>
+						<label for="zipCode">Please enter your zipcode</label>					
+					</li>
+					<li class="mt-3">
+						<button id ="searchBtn" type="submit">Search</button>
 					</li>
 				</ul>
 				<button id="btnNew">Add a new spring or swimming hole</button>
@@ -63,9 +66,9 @@
 			<section class="flex-column col-8 p-5 align-left springs-container">
 				<div class="flex-row">
 					<div class="springcard bg-light">
-						<h2 class="text-primary"><a href="./springs.html">Wekiwa Springs State Park</a></h2>
-						<p>Wekiwa Springs State Park is a 7,000-acre Florida State Park in Apopka, Florida. With emerald springs feeding the Wekiwa River and lush tropical hammocks, this unique park just minutes from downtown Orlando is perfect for observing abundant wildlife or cooling off on a summer day</p>
+						<h2 class="text-primary"><a href="./springs.html">Wekiwa Springs<br>State Park</a></h2>
 						<img class="card-image" src="./Assets/images/Wekiwa-Springs-State-Park-FL.jpg" alt="Picture of Wekiwa Springs">
+						<p>Wekiwa Springs State Park is a 7,000-acre Florida State Park in Apopka, Florida. With emerald springs feeding the Wekiwa River and lush tropical hammocks, this unique park just minutes from downtown Orlando is perfect for observing abundant wildlife or cooling off on a summer day</p>
 						<p>
 							<span id="distance"></span>
 							miles away. 
@@ -77,9 +80,9 @@
 
 					
 					<div class="springcard bg-light">
-						<h2 class="text-primary">Silver Springs state Park</h2>
-						<p>The 4,000-acre Silver Springs State Park encompasses not only the springs, but the entire 5-mile Silver River and surrounding sandhill forest.</p>
+						<h2 class="text-primary"><a href="./springs.html">Silver Springs<br>State Park</a></h2>
 						<img class="card-image" src="./Assets/images/Silver-springs-bill-belleville-credit.jpg" alt="Picture of Silver Springs">
+						<p>The 4,000-acre Silver Springs State Park encompasses not only the springs, but the entire 5-mile Silver River and surrounding sandhill forest.</p>
 						<p>
 							<span id="distance"></span>
 							miles away. 
@@ -90,9 +93,9 @@
 					</div>
 
 					<div class="springcard bg-light">
-						<h2 class="text-primary">Ginnie Springs Outdoors</h2>
-						<p>From innertubes, to kayaks, to paddleboards and canoes there are many ways to experience Ginnie.</p>
+						<h2 class="text-primary"><a href="./springs.html">Ginnie Springs<br>Outdoors</a></h2>
 						<img class="card-image" src="./Assets/images/Ginnie-Springs.jpg" alt="Picture of Ginnie Springs">
+						<p>From innertubes, to kayaks, to paddleboards and canoes there are many ways to experience Ginnie.</p>
 						<p>
 							<span id="distance"></span>
 							miles away. 
@@ -103,9 +106,9 @@
 					</div>
 
 					<div class="springcard bg-light">
-						<h2 class="text-primary">Ichetucknee Springs State Park</h2>
-						<p>Ichetucknee Springs State Park is a 2,669-acre wildlife haven where beaver, otter, gar, softshell turtle, wild turkey, wood duck and limpkin all find a home.</p>
+						<h2 class="text-primary"><a href="./springs.html">Ichetucknee Springs State Park</a></h2>
 						<img class="card-image" src="./Assets/images/ichetucknee-blue_hole_springs-16.jpg" alt="Picture of Ichetucknee Springs">
+						<p>Ichetucknee Springs State Park is a 2,669-acre wildlife haven where beaver, otter, gar, softshell turtle, wild turkey, wood duck and limpkin all find a home.</p>
 						<p>
 							<span id="distance"></span>
 							miles away. 
@@ -116,9 +119,9 @@
 					</div>
 
 					<div class="springcard bg-light">
-						<h2 class="text-primary">Madison Blue Spring State Park</h2>
-						<p>This crystal-clear, first-magnitude spring is a popular spot for swimming and cave diving.</p>
+						<h2 class="text-primary"><a href="./springs.html">Madison Blue Spring State Park</a></h2>
 						<img class="card-image" src="./Assets/images/14503706461_c2c1251520_b.jpg" alt="Picture of Madison Spring">
+						<p>This crystal-clear, first-magnitude spring is a popular spot for swimming and cave diving.</p>
 						<p>
 							<span id="distance"></span>
 							miles away. 
@@ -129,9 +132,9 @@
 					</div>
 					
 					<div class="springcard bg-light">
-						<h2 class="text-primary">Manatee Springs State Park</h2>
-						<p>This makes it a popular cooling-off spot and a great place to stroll on the park boardwalk and gaze into watery depths. True to its namesake, manatees can be seen in the cooler months, and birds, mammals and fish are spotted year-round.</p>
+						<h2 class="text-primary"><a href="./springs.html">Manatee Springs State Park</a></h2>
 						<img class="card-image" src="./Assets/images/fls-1006-manatee-at-homosassa.jpg" alt="Picture of Manatee Spring">
+						<p>This makes it a popular cooling-off spot and a great place to stroll on the park boardwalk and gaze into watery depths. True to its namesake, manatees can be seen in the cooler months, and birds, mammals and fish are spotted year-round.</p>
 						<p>
 							<span id="distance"></span>
 							miles away. 
@@ -142,9 +145,9 @@
 					</div>
 					
 					<div class="springcard bg-light">
-						<h2 class="text-primary">Ponce De Leon Springs State Park</h2>
-						<p>Visitors can take a leisurely walk along two self-guided nature trails through a lush, hardwood forest and learn about the local ecology and wildlife.</p>
+						<h2 class="text-primary"><a href="./springs.html">Ponce De Leon Springs State Park</a></h2>
 						<img class="card-image" src="./Assets/images/Ponce-DeLeon-Springs.jpg" alt="Picture of Ponce De Leon Spring">
+						<p>Visitors can take a leisurely walk along two self-guided nature trails through a lush, hardwood forest and learn about the local ecology and wildlife.</p>
 						<p>
 							<span id="distance"></span>
 							miles away. 
@@ -155,9 +158,9 @@
 					</div>
 					
 					<div class="springcard bg-light">
-						<h2 class="text-primary">Blue Spring State Park</h2>
-						<p>State park offering a variety of outdoor activities including camping, hiking, canoeing, fishing, boating, snorkeling and scuba diving.</p>
+						<h2 class="text-primary"><a href="./springs.html">Blue Spring<br>State Park</a></h2>
 						<img class="card-image" src="./Assets/images/blue-spring-single-manatee.jpg" alt="Picture of Blue Spring">
+						<p>State park offering a variety of outdoor activities including camping, hiking, canoeing, fishing, boating, snorkeling and scuba diving.</p>
 						<p>
 							<span id="distance"></span>
 							miles away. 
@@ -168,9 +171,9 @@
 					</div>
 					
 					<div class="springcard bg-light">
-						<h2 class="text-primary">Wes Skiles Peacock Springs State Park</h2>
-						<p>The park features one of the longest underwater cave systems in the continental United States.</p>
+						<h2 class="text-primary"><a href="./springs.html">Wes Skiles Peacock Springs State Park</a></h2>
 						<img class="card-image" src="./Assets/images/entrance to springs.jpg" alt="Picture of Wes Skiles Peacock Springs">
+						<p>The park features one of the longest underwater cave systems in the continental United States.</p>
 						<p>
 							<span id="distance"></span>
 							miles away. 
