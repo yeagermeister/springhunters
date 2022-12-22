@@ -143,7 +143,7 @@ console.log(dropdownList.length);
       springCard.style.display = 'none';
     }
   });
-}
+
 
 // document.querySelector('#statePark').addEventListener('change', filterParks);
 // document.querySelector('#petFriendly').addEventListener('change', filterParks);
