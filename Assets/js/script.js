@@ -3,7 +3,7 @@ const header = document.querySelector('header');
 const h1 = document.querySelector('h1');
 const filterOption = document.querySelector('#filterOption');
 const ul = document.querySelector('ul');
-const parkName = document.querySelector('#parkName');
+const statePark = document.querySelector('#statePark');
 const petFriendly = document.querySelector('#petFriendly');
 const campingAllowed = document.querySelector('#campingAllowed');
 const gatorDanger = document.querySelector('#gatorDanger');
@@ -90,7 +90,7 @@ function filterParks() {
   // const zipCode = document.querySelector('#zipCode').value;
 
   // Get all the spring cards
-  const springCards = document.querySelectorAll('.springcard');
+ 
 
   // Loop through each spring card and check if it meets the selected filter criteria
   springCards.forEach(card => {
@@ -118,18 +118,21 @@ function filterParks() {
     if (zipCode && park.zipcode.toString().indexOf(zipCode) === -1) {
       showCard = false;
     }
-
+  
     // Show or hide the card based on the filter criteria
     if (showCard) {
       card.style.display = 'block';
+    }
+  });
 
-  const statepark = document.querySelector('#parkNameCheckbox').checked;
-  const petFriendly = document.querySelector('#petFriendlyCheckbox').checked;
-  const campingAllowed = document.querySelector('#campingAllowedCheckbox').checked;
-  const gatorDanger = document.querySelector('#gatorDangerCheckbox').checked;
-  const scubaDiving = document.querySelector('#scubaDivingCheckbox').checked;
-  const pricingFee = document.querySelector('#pricingFeeCheckbox').checked;
-  const zipCode = document.querySelector('#zipCodeInput').value;
+  statePark.checked;
+  petFriendly.checked;
+  campingAllowed.checked;
+  gatorDanger.checked;
+  scubaDiving.checked;
+  pricingFee.checked;
+  zipCode.value;
+  
 
   // Loop through the spring cards
   springCards.forEach(springCard => {
@@ -222,7 +225,6 @@ const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 //finds the users location
 
 
-populateDropdown();
 
 
 
@@ -266,5 +268,4 @@ populateDropdown();
 
 
 
-
-
+  
