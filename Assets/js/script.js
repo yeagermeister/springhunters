@@ -12,8 +12,21 @@ const pricingFee = document.querySelector('#pricingFee');
 const zipCode = document.querySelector('#zipCode');
 const main = document.querySelector('main');
 const springCards = document.querySelectorAll('.springcard');
-const dropdownEl = document.querySelector('#dropdown');
-const submit = document.querySelector('#submit');
+const submit = document.querySelector('#searchBtn');
+
+// Elements for the modal
+const modal = document.getElementById("myModal");
+const btnNew = document.getElementById("btnNew");
+const close = document.getElementsByClassName("close")[0];
+const newSpring = document.querySelector("#newSpring");
+console.log(newSpring);
+const springNameM = document.querySelector("#springnamem");
+const descriptionM = document.querySelector("#descriptionm");
+const campingM = document.getElementById("campingm");
+console.log(campingM.checked);
+const addressM = document.querySelector("#addressm");
+const petFriendlyM = document.getElementById("petfriendlym");
+
 let wekiwaSprings = 'Wekiwa'
 let silverSprings = 'Silver'
 let ginnieSprings ='Ginnie'
@@ -29,15 +42,10 @@ let weekiWacheeSprings = 'Weeki'
 let royalSprings = 'Royal'
 let bobsRiverPlace = 'Bobs'
 
-
-
 const stateParks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
-const dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Srings State Park", "Weeki Wachee Springs State Park", "Royal Springs", "Bob's River Place"];
 
 // Get DOM elements
-const modal = document.getElementById("myModal");
-const btnNew = document.getElementById("btnNew");
-const close = document.getElementsByClassName("close")[0];
+
 
 navigator.geolocation.getCurrentPosition(function(position) {
 
@@ -49,146 +57,91 @@ navigator.geolocation.getCurrentPosition(function(position) {
   console.log(userLoc.lon)
 });
 
-// Add event listeners to open and close modal
-btnNew.addEventListener("click", function() {
-  modal.style.display = "block";
-});
-close.addEventListener("click", function() {
-  modal.style.display = "none";
-});
-
-// Close modal when user clicks outside of it
-window.addEventListener("click", function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-});
-
-// Add event listener to dropdown menu
-const dropdown = document.getElementById("dropdown");
-dropdown.addEventListener("change", function() {
-  // Handle selection of dropdown menu options
-  const selectedOption = dropdown.value;
-  if (selectedOption === "CSS SELECT arrow (round)") {
-    // Add round CSS to dropdown menu
-    dropdown.classList.add("round");
-  } else if (selectedOption === "No external background image") {
-    // Remove external background image from dropdown menu
-    dropdown.style.backgroundImage = "none";
-  } else if (selectedOption === "No wrapper") {
-    // Remove wrapper element from dropdown menu
-    dropdown.parentNode.removeChild(dropdown);
-  }
-});
-
-console.log(dropdownList.length);
 
 
 
 
-// function filterParks() {
-  // Get the selected filter options
+// Loop through each spring card and check if it meets the selected filter criteria
+  // springCards.forEach(card => {
+  //   const park = window[card.querySelector('h2').textContent.toLowerCase()];
+  //   let showCard = true;
 
-  // const statepark = document.querySelector('#statePark').checked;
-  // const petFriendly = document.querySelector('#petFriendly').checked;
-  // const campingAllowed = document.querySelector('#campingAllowed').checked;
-  // const gatorDanger = document.querySelector('#gatorDanger').checked;
-  // const scubaDiving = document.querySelector('#scubaDiving').checked;
-  // const pricingFee = document.querySelector('#pricingFee').checked;
-  // const zipCode = document.querySelector('#zipCode').value;
-
-  // Get all the spring cards
- 
-
-  // Loop through each spring card and check if it meets the selected filter criteria
-  springCards.forEach(card => {
-    const park = window[card.querySelector('h2').textContent.toLowerCase()];
-    let showCard = true;
-
-    if (statepark && !park.statepark) {
-      showCard = false;
-    }
-    if (petFriendly && !park.petFriendly) {
-      showCard = false;
-    }
-    if (campingAllowed && !park.campingAllowed) {
-      showCard = false;
-    }
-    if (gatorDanger && !park.gatorDanger) {
-      showCard = false;
-    }
-    if (scubaDiving && !park.scubaDiving) {
-      showCard = false;
-    }
-    if (pricingFee && park.fees !== 'Free') {
-      showCard = false;
-    }
-    if (zipCode && park.zipcode.toString().indexOf(zipCode) === -1) {
-      showCard = false;
-    }
+  //   if (statepark && !park.statepark) {
+  //     showCard = false;
+  //   }
+  //   if (petFriendly && !park.petFriendly) {
+  //     showCard = false;
+  //   }
+  //   if (campingAllowed && !park.campingAllowed) {
+  //     showCard = false;
+  //   }
+  //   if (gatorDanger && !park.gatorDanger) {
+  //     showCard = false;
+  //   }
+  //   if (scubaDiving && !park.scubaDiving) {
+  //     showCard = false;
+  //   }
+  //   if (pricingFee && park.fees !== 'Free') {
+  //     showCard = false;
+  //   }
+  //   if (zipCode && park.zipcode.toString().indexOf(zipCode) === -1) {
+  //     showCard = false;
+  //   }
   
-    // Show or hide the card based on the filter criteria
-    if (showCard) {
-      card.style.display = 'block';
-    }
-  });
+  //   // Show or hide the card based on the filter criteria
+  //   if (showCard) {
+  //     card.style.display = 'block';
+  //   }
+  // });
 
-  statePark.checked;
-  petFriendly.checked;
-  campingAllowed.checked;
-  gatorDanger.checked;
-  scubaDiving.checked;
-  pricingFee.checked;
-  zipCode.value;
+  // statePark.checked;
+  // petFriendly.checked;
+  // campingAllowed.checked;
+  // gatorDanger.checked;
+  // scubaDiving.checked;
+  // pricingFee.checked;
+  // zipCode.value;
   
 
   // Loop through the spring cards
-  springCards.forEach(springCard => {
+  // springCards.forEach(springCard => {
     // Check if the spring card matches the selected filter options
-    const matchesStatepark = !statepark || springCard.dataset.statepark === 'true';
-    const matchesPetFriendly = !petFriendly || springCard.dataset.petfriendly === 'true';
-    const matchesCampingAllowed = !campingAllowed || springCard.dataset.camping === 'true';
-    const matchesGatorDanger = !gatorDanger || springCard.dataset.gatordanger === 'true';
-    const matchesScubaDiving = !scubaDiving || springCard.dataset.scuba === 'true';
-    const matchesPricingFee = !pricingFee || springCard.dataset.fees === 'Free';
-    const matchesZipCode = !zipCode || springCard.dataset.zipcode === zipCode;
+    // const matchesStatepark = !statepark || springCard.dataset.statepark === 'true';
+    // const matchesPetFriendly = !petFriendly || springCard.dataset.petfriendly === 'true';
+    // const matchesCampingAllowed = !campingAllowed || springCard.dataset.camping === 'true';
+    // const matchesGatorDanger = !gatorDanger || springCard.dataset.gatordanger === 'true';
+    // const matchesScubaDiving = !scubaDiving || springCard.dataset.scuba === 'true';
+    // const matchesPricingFee = !pricingFee || springCard.dataset.fees === 'Free';
+    // const matchesZipCode = !zipCode || springCard.dataset.zipcode === zipCode;
 
     // Show or hide the spring card based on whether it matches the selected filter options
-    if (matchesStatepark && matchesPetFriendly && matchesCampingAllowed && matchesGatorDanger && matchesScubaDiving && matchesPricingFee && matchesZipCode) {
-      springCard.style.display = 'block';
-    } else {
-      springCard.style.display = 'none';
-    }
-  });
+    // if (matchesStatepark && matchesPetFriendly && matchesCampingAllowed && matchesGatorDanger && matchesScubaDiving && matchesPricingFee && matchesZipCode) {
+    //   springCard.style.display = 'block';
+    // } else {
+    //   springCard.style.display = 'none';
+    // }
+  // });
 
 
-// document.querySelector('#statePark').addEventListener('change', filterParks);
-// document.querySelector('#petFriendly').addEventListener('change', filterParks);
-// document.querySelector('#campingAllowed').addEventListener('change', filterParks);
-// document.querySelector('#gatorDanger').addEventListener('change', filterParks);
-// document.querySelector('#scubaDiving').addEventListener('change', filterParks);
-// document.querySelector('#pricingFee').addEventListener('change', filterParks);
-// document.querySelector('#zipCode').addEventListener('input', filterParks);
+
+// const filterOptionCheckboxes = document.querySelectorAll('input[type=checkbox]');
+// const zipCodeInput = document.querySelector('#zipCodeInput');
+
+// filterOptionCheckboxes.forEach(checkbox => {
+//   checkbox.addEventListener('change', filterParks);
+// });
+
+// zipCodeInput.addEventListener('input', filterParks);
+
+// // What is #submit?
+// document.querySelector('#submit').addEventListener('submit', 
+// function(event) {
+//   console.log(event);
+// });
 
 
-const filterOptionCheckboxes = document.querySelectorAll('input[type=checkbox]');
-const zipCodeInput = document.querySelector('#zipCodeInput');
-
-filterOptionCheckboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', filterParks);
-});
-
-zipCodeInput.addEventListener('input', filterParks);
-
-
-document.querySelector('#submit').addEventListener('submit', 
-function(event) {
-  console.log(event);
-});
-
-
-// Initialize the filter with no options selected
-filterParks();
+// // Initialize the filter with no options selected
+// filterParks();
 
 
 
@@ -230,6 +183,46 @@ function performSearch(searchTerm) {
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 //finds the users location
 
+
+// ******************************************
+// *******Modal listeners *******************
+// ******************************************
+
+// Add event listeners to open and close modal
+btnNew.addEventListener("click", function() {
+  modal.style.display = "block";
+});
+close.addEventListener("click", function() {
+  modal.style.display = "none";
+});
+
+// Close modal when user clicks outside of it
+window.addEventListener("click", function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
+
+newSpring.addEventListener("click", function(event) {
+  event.preventDefault;
+ 
+  let camp = "";
+  let pet = "'";
+  let spring = springNameM.value;
+  let desc = descriptionM.value;
+  if (campingM.checked) {
+    camp = "true";
+  } else {camp = false};
+  if (petFriendlyM.checked) {
+    pet = "true"
+  } else {pet = "false"};
+  let address = addressM.value;
+
+  let newspring = 'mailto:address@dmail.com?subject=Please add this new spring to the website&body=This would work awesome if we had a database we could write to.  THis request would be pending approval to be added by a site administrator.  But since we are only newbs, you get this webpage showing that we know how to grab the input from the form.  Spring Name: ' + spring + '     Description: ' + desc + '     Camping:  ' + camp + '     Pet Friendly: ' + pet + '     Address: ' + address;
+
+  sessionStorage.setItem("newspring", JSON.stringify(newspring));
+  document.location.replace("./newspring.html")
+});
 
 
 
