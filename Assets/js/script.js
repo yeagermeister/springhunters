@@ -81,7 +81,7 @@ console.log(dropdownList.length);
   // const zipCode = document.querySelector('#zipCode').value;
 
   // Get all the spring cards
-  const springCards = document.querySelectorAll('.springcard');
+  // const springCards = document.querySelectorAll('.springcard');
 
   // Loop through each spring card and check if it meets the selected filter criteria
   springCards.forEach(card => {
@@ -109,11 +109,11 @@ console.log(dropdownList.length);
     if (zipCode && park.zipcode.toString().indexOf(zipCode) === -1) {
       showCard = false;
     }
-
+  })
     // Show or hide the card based on the filter criteria
     if (showCard) {
       card.style.display = 'block';
-
+  
   const statepark = document.querySelector('#parkNameCheckbox').checked;
   const petFriendly = document.querySelector('#petFriendlyCheckbox').checked;
   const campingAllowed = document.querySelector('#campingAllowedCheckbox').checked;
