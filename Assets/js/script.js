@@ -113,7 +113,7 @@ console.log(dropdownList.length);
     // Show or hide the card based on the filter criteria
     if (showCard) {
       card.style.display = 'block';
-=======
+
   const statepark = document.querySelector('#parkNameCheckbox').checked;
   const petFriendly = document.querySelector('#petFriendlyCheckbox').checked;
   const campingAllowed = document.querySelector('#campingAllowedCheckbox').checked;
