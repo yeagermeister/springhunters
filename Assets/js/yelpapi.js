@@ -19,4 +19,4 @@ async function searchYelp() {
 }
 
 // Add an event listener to the park name element
-document.getElementById('parkname').addEventListener('click', searchYelp);
+document.getElementById('statePark').addEventListener('click', searchYelp);

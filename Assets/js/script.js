@@ -12,9 +12,26 @@ const pricingFee = document.querySelector('#pricingFee');
 const zipCode = document.querySelector('#zipCode');
 const main = document.querySelector('main');
 const springCards = document.querySelectorAll('.springcard');
-const dropdownEl = document.querySelector('#dropdown')
+const dropdownEl = document.querySelector('#dropdown');
+const submit = document.querySelector('#submit');
+let wekiwaSprings = 'Wekiwa'
+let silverSprings = 'Silver'
+let ginnieSprings ='Ginnie'
+let itchetuckneeSprings = 'Itchentucknee'
+let madisonSprings ='Madison'
+let manateeSprings = 'Manatee'
+let rainbowSprings = 'Rainbow'
+let rockSpringsRun = 'RockSpring'
+let blueSpring = 'BlueSpring'
+let deLeonSprings = 'DeLeon'
+let fanningSprings = 'Fanning'
+let weekiWacheeSprings = 'Weeki'
+let royalSprings = 'Royal'
+let bobsRiverPlace = 'Bobs'
 
-const parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
+
+
+const stateParks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
 const dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Srings State Park", "Weeki Wachee Springs State Park", "Royal Springs", "Bob's River Place"];
 
 // Get DOM elements
@@ -32,20 +49,20 @@ navigator.geolocation.getCurrentPosition(function(position) {
   console.log(userLoc.lon)
 });
 
-// // Add event listeners to open and close modal
-// btnNew.addEventListener("click", function() {
-//   modal.style.display = "block";
-// });
-// close.addEventListener("click", function() {
-//   modal.style.display = "none";
-// });
+// Add event listeners to open and close modal
+btnNew.addEventListener("click", function() {
+  modal.style.display = "block";
+});
+close.addEventListener("click", function() {
+  modal.style.display = "none";
+});
 
-// // Close modal when user clicks outside of it
-// window.addEventListener("click", function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// });
+// Close modal when user clicks outside of it
+window.addEventListener("click", function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
 
 // Add event listener to dropdown menu
 const dropdown = document.getElementById("dropdown");
@@ -164,13 +181,11 @@ filterOptionCheckboxes.forEach(checkbox => {
 zipCodeInput.addEventListener('input', filterParks);
 
 
-document.querySelector('#parkName').addEventListener('change', filterParks);
-document.querySelector('#petFriendly').addEventListener('change', filterParks);
-document.querySelector('#campingAllowed').addEventListener('change', filterParks);
-document.querySelector('#gatorDanger').addEventListener('change', filterParks);
-document.querySelector('#scubaDiving').addEventListener('change', filterParks);
-document.querySelector('#pricingFee').addEventListener('change', filterParks);
-document.querySelector('#zipCode').addEventListener('input', filterParks);
+document.querySelector('#submit').addEventListener('submit', 
+function(event) {
+  console.log(event);
+});
+
 
 // Initialize the filter with no options selected
 filterParks();
