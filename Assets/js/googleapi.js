@@ -2,10 +2,13 @@
 var mapId = document.getElementById("map");
 var parkName = document.getElementById("parkname")
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
+let map = mapId;
+let labels = springNames[i][0]
+let locations = springnames[i][1]
 
 
 
-let wakiwaSprings = {
+let wekiwaSprings = {
   name: "wakiwaSprings", 
   location: "lat: 28.711243, lon: -81.463754",
 }
@@ -30,24 +33,15 @@ let manateeSprings = {
   name: "manateeSprings", 
     location: "lat: 29.4975, lon: -82.9758",
 }
-var springNames = new Array(
-  wakiwaSprings,
+const springNames = [
+  wekiwaSprings,
   silverSprings,
   ginnieSprings,
   itchetuckneeSprings,
   madisonSprings,
   manateeSprings
-)
+]
 
-function addMarkers(map, springNames, labels) {
-  for (var i = 0; i < 6; i++) {
-    var marker = new google.maps.Marker({
-      position: springNames[i][1],
-      map: mapId,
-      label: springNames[i]
-    });
-  }
-}
 
 
 
@@ -68,5 +62,17 @@ window.onload = function() {
       position: {lat: 28.711243, lng: -81.463754},
       map: map
     });
+
+    function addMarkers() { console.log(springNames)
+      for (var i = 0; i < springNames.length; i++) {
+        var marker = new google.maps.Marker({
+          position: location,
+          map: mapId,
+          label: labels
+        });
+      }
+    }
+   
+    
     addMarkers();
   }
