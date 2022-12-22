@@ -1,29 +1,35 @@
-// Should be used for the weather api until we consolidate javascript files
+function getWeather() {
+  const API_KEY = '4a9c9446f7msh1bdc5860de01184p135179jsne7c04d560051';
+  const API_HOST = 'weatherapi-com.p.rapidapi.com';
 
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': API_KEY,
+      'X-RapidAPI-Host': API_HOST
+    }
+  };
 
-// Adding the modal stuff in here to test
-// Get the modal
-var modal = document.getElementById("myModal");
+  const city = 'l';  // Replace with the city you want to search for
 
-// Get the button that opens the modal
-var btn = document.getElementById("btnNew");
+  // Send a GET request to the RapidAPI weather API
+  fetch('https://weatherapi-com.p.rapidapi.com/forecast.json?q=10461&days=3', options)
+    .then(response => response.json())
+    .then(data => {
+      // Extract the relevant data from the response
+      const cityName = data.location.name;
+      const temperature = data.current.temp_f;
+      const condition = data.current.condition.text;
+      const iconUrl = data.current.condition.icon;
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
+      // Update the HTML elements on the page
+      document.getElementById('city').innerHTML = cityName;
+      document.getElementById('temperature').innerHTML = `${temperature}°F`;
+      document.getElementById('condition').innerHTML = condition;
+      document.getElementById('icon').src = iconUrl;
+    })
+    .catch(err => console.error(err));
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+// Call the getWeather function when the page loads
+window.onload = getWeather;
