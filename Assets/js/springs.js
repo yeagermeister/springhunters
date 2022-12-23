@@ -9,7 +9,9 @@ let campingEl = document.querySelector("#camping");
 let gatorEl = document.querySelector("#gator");
 let scubaEl = document.querySelector("#scuba");
 let ratingEl = document.querySelector("#rating");
-let noteEl = document.querySelector("#note");
+let noteEl = document.querySelector("#notetext");
+
+var park
 
 let dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Srings State Park", "Weeki Wachee Springs State Park", "Royal Springs", "Bob's River Place"];
 
@@ -47,18 +49,52 @@ function populateParkInfo(park) {
   if (park.scuba) {
     scubaEl.textContent = "Scuba Diving Allowed"
   } else (scubaEl.textContent = "No Scuba Diving");
-
+  
   // Need to implement local storage for these to work
-  // ratingEl.textContent = 
   // noteEl.textContent = 
 };
+
+function populatePersonalInfo(personalRating, personalNote) {
+  ratingEl.value = personalRating;
+  noteEl.textContent = personalNote;
+};
+
+
+$("#personalnote").on('click', function (event) {
+  event.preventDefault()
+
+  let value = noteEl.value;
+  console.log(park);
+  localStorage.setItem(park.name + " note", value)
+});
+
+// Function for the star rating
+$(document).ready(function(){
+  // Check Radio-box
+  $(".rating input:radio").attr("checked", false);
+
+  $('.rating input').click(function () {
+      $(".rating span").removeClass('checked');
+      $(this).parent().addClass('checked');
+  });
+
+  $('input:radio').change(
+    function(){
+      var userRating = this.value;
+      localStorage.setItem(park.name + " rating", userRating);
+  }); 
+});
+
 
 
 // Get the correct park array from session storage when the drop down list is used
 $("#dropdown").on("change", function() {
   let value = dropdownEl.options[dropdownEl.selectedIndex].value;
-  let park = JSON.parse(sessionStorage.getItem(value));
+  park = JSON.parse(sessionStorage.getItem(value));
   populateParkInfo(park);
+  personalRating = JSON.parse(localStorage.getItem(park.name + " rating"));
+  personalNote = JSON.parse(localStorage.getItem(park.name + " note"));
+  populatePersonalInfo(personalRating, personalNote);
 });
 
 populateDropdown();
