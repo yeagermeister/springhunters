@@ -145,13 +145,9 @@ function getWeather() {
 }
 
 // Call the getWeather function when the page loads
-window.onload = getWeather;
-
 function updateWeather(newZipcode) {
   sessionStorage.setItem('zipcode', newZipcode);
   getWeather();
-
-  console.log(storedParks);
 
   // Loop through the array of objects
   for (var i = 0; i < storedParks.length; i++) {
@@ -163,5 +159,68 @@ function updateWeather(newZipcode) {
       return parkLoc
     }}
 }
+
+// Initialize and add the map
+var mapId = document.getElementById("map");
+var parkName = document.getElementById("parkname");
+var storedParks = JSON.parse(sessionStorage.getItem(`parks`));
+const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
+var parkLoc;
+var map = mapId;
+
+window.onload = function() {
+    initMap();
+    getWeather();
+  };
+  // Initialize the map
+  function initMap() {
+
+// Loop through the array of objects
+for (var i = 0; i < storedParks.length; i++) {
+  // Check if the element's value matches the title of the current object
+  if (parkName.value == storedParks[i].name) {console.log(parkName.value, storedParks[i].name) 
+    // If the values match, retrieve the value property of the object
+    let parkLoc = park[i].location;
+    // You can now use the value variable in your code
+    return parkLoc
+  }
+}
+console.log(parkLoc)
+    // Set up the map options
+
+    const mapOptions = {
+      zoom: 10,
+      center: new google.maps.LatLng(28.711243, -81.463754)
+    };
+    // Create the map
+    const map = new google.maps.Map(mapId, mapOptions);
+    // Add a marker to the map at the specified coordinates
+    const marker = new google.maps.Marker({
+      position: {location},
+      map: map
+    });
+
+// let labels = springNames[i][0]
+// let locations = springnames[i][1]
+
+    // function addMarker() { 
+    //    
+    //     var marker = new google.maps.Marker({
+    //       position: location,
+    //       map: mapId,
+    //       label: labels
+    //     });
+    //   
+    // }
+   
+    
+    // addMarker();
+  }
+
+  // Define an array of objects, each with a title and a value
+
+
+// Get the element with the title you want to compare
+
 
 
