@@ -3,7 +3,7 @@
 let wekiwaSprings = {
     name: 'Wekiwa Springs State Park',
     description: 'Wekiwa Springs State Park is a 7,000-acre Florida State Park in Apopka, Florida. With emerald springs feeding the Wekiwa River and lush tropical hammocks, this unique park just minutes from downtown Orlando is perfect for observing abundant wildlife or cooling off on a summer day',
-    imageUrl: './Assets/images/Wekiwa-Springs-State-Park-FL.jpg',
+    imageUrl: './Assets/images/Wekiwa-Springs-State-Park-FL.jpg', 
     distance: '',
     weather: '',
     zipcode: 32712,
@@ -19,7 +19,7 @@ let wekiwaSprings = {
 let silverSprings = {
     name: 'Silver Springs State Park',
     description: 'The 4,000-acre Silver Springs State Park encompasses not only the springs, but the entire 5-mile Silver River and surrounding sandhill forest.',
-    imageUrl: './Assets/images/Silver-springs-bill-belleville-credit.jpg',
+    imageUrl: './Assets/images/Silver-Springs.jpg',
     distance: '',
     weather: '',
     zipcode: 34488,
@@ -36,7 +36,7 @@ let silverSprings = {
 let rainbowSprings = {
     name: 'Rainbow Springs State Park',
     description: 'Rainbow Springs State Park is a Florida State Park located on the southwest side of Dunnellon, Florida. The park includes the Rainbow River, a popular destination for swimming, snorkeling, and scuba diving.',
-    imageUrl: './Assets/images/Rainbow-Springs-State-Park-FL.jpg',
+    imageUrl: './Assets/images/Rainbow-Springs-Park.jpg',
     distance: '',
     weather: '',
     zipcode: 34432,
@@ -53,7 +53,7 @@ let rainbowSprings = {
 let rockSpringsRun = {
     name: 'Rock Springs Run State Reserve',
     description: 'Rock Springs Run State Reserve is a 6,000-acre Florida State Park located in Sorrento, Florida. The park is home to the largest spring on the Wekiva River, Rock Springs, which flows into the Wekiva River.',
-    imageUrl: './Assets/images/Rock-Springs-Run-State-Reserve-FL.jpg',
+    imageUrl: './Assets/images/Rock-Springs-Reserve.jpg',
     distance: '',
     weather: '',
     zipcode: 32776,
@@ -70,7 +70,7 @@ let rockSpringsRun = {
 let ginnieSprings = {
     name: 'Ginnie Springs',
     description: 'Ginnie Springs is a privately owned recreational park located in High Springs, Florida. The park is popular for scuba diving, swimming, and snorkeling, and is home to several underwater caves.',
-    imageUrl: './Assets/images/Ginnie-Springs-FL.jpg',
+    imageUrl: './Assets/images/Ginnie-Springs.jpg',
     distance: '',
     weather: '',
     zipcode: 32643,
@@ -87,7 +87,7 @@ let ginnieSprings = {
 let blueSpring = {
     name: 'Blue Spring State Park',
     description: 'Blue Spring State Park is a Florida State Park located west of Orange City, Florida. The park is home to a first magnitude spring, which is the largest spring on the St. Johns River and a popular destination for swimming and manatee watching.',
-    imageUrl: './Assets/images/Blue-Spring-State-Park-FL.jpg',
+    imageUrl: './Assets/images/Blue-Spring-State.jpg',
     distance: '',
     weather: '',
     zipcode: 32763,
@@ -104,7 +104,7 @@ let blueSpring = {
 let deLeonSprings = {
     name: 'DeLeon Springs State Park',
     description: 'DeLeon Springs State Park is a Florida State Park located in DeLeon Springs, Florida. The park is home to DeLeon Springs, a first magnitude spring and a popular destination for swimming, snorkeling, and scuba diving.',
-    imageUrl: './Assets/images/DeLeon-Springs-State-Park-FL.jpg',
+    imageUrl: './Assets/images/DeLeon-Springs.jpg',
     distance: '',
     weather: '',
     zipcode: 32130,
@@ -121,7 +121,7 @@ let deLeonSprings = {
 let fanningSprings = {
     name: 'Fanning Springs State Park',
     description: 'Fanning Springs State Park is a Florida State Park located in Fanning Springs, Florida. The park is home to Fanning Springs, a first magnitude spring and a popular destination for swimming, snorkeling, and scuba diving.',
-    imageUrl: './Assets/images/Fanning-Springs-State-Park-FL.jpg',
+    imageUrl: './Assets/images/Fanning-Springs.jpg',
     distance: '',
     weather: '',
     zipcode: 32693,
@@ -138,7 +138,7 @@ let fanningSprings = {
 let manateeSprings = {
     name: 'Manatee Springs State Park',
     description: 'Manatee Springs State Park is a Florida State Park located in Chiefland, Florida. The park is home to Manatee Springs, a first magnitude spring and a popular destination for swimming, snorkeling, and scuba diving.',
-    imageUrl: './Assets/images/Manatee-Springs-State-Park-FL.jpg',
+    imageUrl: './Assets/images/Manatee-Springs-State.jpg',
     distance: '',
     weather: '',
     zipcode: 32626,
@@ -155,7 +155,7 @@ let manateeSprings = {
 let weekiWacheeSprings = {
     name: 'Weeki Wachee Springs State Park',
     description: 'Weeki Wachee Springs State Park is a Florida State Park located in Weeki Wachee, Florida. The park is home to Weeki Wachee Springs, a first magnitude spring and a popular destination for swimming, snorkeling, and scuba diving. The park is also known for its live mermaid shows.',
-    imageUrl: './Assets/images/Weeki-Wachee-Springs-State-Park-FL.jpg',
+    imageUrl: './Assets/images/Weeki-Wachee-Springs.jpg',
     distance: '',
     weather: '',
     zipcode: 34606,
@@ -172,7 +172,7 @@ let weekiWacheeSprings = {
 let itchetuckneeSprings = {
     name: 'Ichetucknee Srings State Park',
     description: 'Green space with river tubing in the summer',
-    imageUrl: './Assets/images/itchetucknee.jpg',
+    imageUrl: './Assets/images/itchetucknee-Blue-Hole.jpg',
     distance: '',
     weather: '',
     zipcode: 32038,
@@ -189,7 +189,7 @@ let itchetuckneeSprings = {
 let madisonSprings = {
     name: 'Madison Springs',
     description: 'State park in North Florida with a spring.',
-    imageUrl: './Assets/images/madison.jpg',
+    imageUrl: './Assets/images/Madison-Blue-Spring.jpg',
     distance: '',
     weather: '',
     zipcode: 34606,
@@ -206,7 +206,7 @@ let madisonSprings = {
  let royalSprings = {
     name: 'Royal Springs',
     description: 'Spring feeds the Suwanee river.  There is a 20ft. high diving platform above the spring. Picnic area in the park.  A couple rope swings along the river.',
-    imageUrl: './Assets/images/royalspring.jpg',
+    imageUrl: './Assets/images/Royal-Springs.jpg',
     distance: '',
     weather: '',
     zipcode: 34606,
@@ -223,7 +223,7 @@ let madisonSprings = {
  let bobsRiverPlace = {
     name: "Bob's River Place",
     description: "Bob's is a swimming hole on the Suwanee river.  It has slides, platforms and swings, among other activities.  Bob recently passed away, and the family is trying to get the place up and running for the 2023 season",
-    imageUrl: './Assets/images/bobs.jpg',
+    imageUrl: './Assets/images/Bobs-River-Place.jpg',
     distance: '',
     weather: '',
     zipcode: 32008,
