@@ -299,49 +299,6 @@ let parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginni
 let springList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Srings State Park", "Weeki Wachee Springs State Park", "Royal Springs", "Bob's River Place"];
 
 function populateCards() {
-  for (let i = 0; i < springList.length; i++) {
-    let storedParks = JSON.parse(sessionStorage.getItem(springList[i]));
-    console.log(storedParks.name);
-
-    // let cardEl = document.createElement('div');
-    // cardEl.classList = "springcard bg-light";
-
-    // let headingEl = document.createElement('h2');
-    // headingEl.classList = "text-primary"
-    // headingEl.textContent = storedParks.name
-
-    // let imgEl = document.createElement('img');
-    // imgEl.classList = "card-image";
-    // imgEl.setAttribute("src", storedParks.imgUrl)
-    // imgEl.setAttribute("alt", "image of a spring")
-
-    // let paraEl = document.createElement('p');
-    // paraEl.textContent = storedParks.description;
-
-    // let distanceEl = document.createElement('p');
-    // distanceEl.textContent = " miles away."
-
-    // let distanceSpanEl = document.createElement('span');
-    // distanceSpanEl.classList = "distance-span";
-    // distanceSpanEl.setAttribute("id", "distance-" + i);
-
-    // let spanEl = document.createElement('span');
-    // spanEl.classList = "wicon"
-    // spanEl.setAttribute("id", "weather-" + i)
-
-    // cardContainerEl.appendChild(cardEl);
-    // cardEl.appendChild(headingEl);
-    // cardEl.appendChild(paraEl);
-    
-    // cardEl.appendChild(distanceEl);
-    // distanceEl.appendChild(distanceSpanEl);
-    // distanceEl.appendChild(spanEl);
-
-// const stateParks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
-
-let springList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Weeki Wachee Springs State Park", "Royal Springs", "Bob's River Place"];
-
-function populateCards() {
   for (let i = 0; i < parks.length; i++) {
   //  let storedParks = [1, 2, 3, 4];
     let storedParks = parks[i];
@@ -355,21 +312,6 @@ function populateCards() {
     cardEl.setAttribute("camping", storedParks.camping)
     cardEl.setAttribute("gator", storedParks.gatordanger)
     cardEl.setAttribute("scuba", storedParks.scuba)
-
-    // name: "Bob's River Place",
-    // description: "Bob's is a swimming hole on the Suwanee river.  It has slides, platforms and swings, among other activities.  Bob recently passed away, and the family is trying to get the place up and running for the 2023 season",
-    // imageUrl: './Assets/images/Bobs-River-Place.jpg',
-    // distance: '',
-    // weather: '',
-    // zipcode: 32008,
-    // fees: "free",
-    // pets: false,
-    // statepark: false,
-    // camping: false,
-    // gatordanger: false,
-    // scuba: false,
-    // lat: 30.0842,
-    // lng: -83.0747
 
     let headingEl = document.createElement('h2');
     headingEl.classList = "text-primary"
@@ -605,7 +547,4 @@ populateCards();
 
 init();
 
-
-
-populateCards()
 
