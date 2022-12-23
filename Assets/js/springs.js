@@ -1,4 +1,4 @@
-let dropdownEl = document.querySelector("#dropdown");
+const dropdownEl = document.querySelector("#dropdown");
 let parknameEl = document.querySelector("#parkname");
 let descriptionEl = document.querySelector("#description");
 let distanceEl = document.querySelector("#distance");
@@ -11,7 +11,7 @@ let scubaEl = document.querySelector("#scuba");
 let ratingEl = document.querySelector("#rating");
 let noteEl = document.querySelector("#notetext");
 
-let park = "Wekiwa Springs State Park";
+const park = "Wekiwa Springs State Park";
 
 let dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Srings State Park", "Weeki Wachee Springs State Park", "Royal Springs", "Bob's River Place"];
 
@@ -23,7 +23,7 @@ let zipcode = storedParks.zipcode;
 
 
 
-// Google Maps V]variables
+// Google Maps Variables
 var mapId = document.getElementById("map");
 var parkName = document.getElementById("parkname");
 var storedParks = JSON.parse(sessionStorage.getItem(`parks`));
@@ -152,13 +152,13 @@ function getWeather() {
       // You can now use the value variable in your code
       
     }}
-}
+
 
 // Initialize and add the map
 var mapId = document.getElementById("map");
 var parkName = document.getElementById("parkname");
 var storedParks = JSON.parse(sessionStorage.getItem(`parks`));
-const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
+//const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 var parkLat;
 var parkLng;
 var map = mapId;

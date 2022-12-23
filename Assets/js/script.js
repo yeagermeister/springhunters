@@ -27,29 +27,29 @@ const campingM = document.getElementById("campingm");
 const addressM = document.querySelector("#addressm");
 const petFriendlyM = document.getElementById("petfriendlym");
 
-let wekiwaSprings = 'Wekiwa'
-let silverSprings = 'Silver'
-let ginnieSprings ='Ginnie'
-let itchetuckneeSprings = 'Itchentucknee'
-let madisonSprings ='Madison'
-let manateeSprings = 'Manatee'
-let rainbowSprings = 'Rainbow'
-let rockSpringsRun = 'RockSpring'
-let blueSpring = 'BlueSpring'
-let deLeonSprings = 'DeLeon'
-let fanningSprings = 'Fanning'
-let weekiWacheeSprings = 'Weeki'
-let royalSprings = 'Royal'
-let bobsRiverPlace = 'Bobs'
+// let wekiwaSprings = 'Wekiwa'
+// let silverSprings = 'Silver'
+// let ginnieSprings ='Ginnie'
+// let itchetuckneeSprings = 'Itchentucknee'
+// let madisonSprings ='Madison'
+// let manateeSprings = 'Manatee'
+// let rainbowSprings = 'Rainbow'
+// let rockSpringsRun = 'RockSpring'
+// let blueSpring = 'BlueSpring'
+// let deLeonSprings = 'DeLeon'
+// let fanningSprings = 'Fanning'
+// let weekiWacheeSprings = 'Weeki'
+// let royalSprings = 'Royal'
+// let bobsRiverPlace = 'Bobs'
 
-const stateParks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
+ const stateParks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
 
 let springList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Srings State Park", "Weeki Wachee Springs State Park", "Royal Springs", "Bob's River Place"];
 
 function populateCards() {
   for (let i = 0; i < springList.length; i++) {
     let storedParks = JSON.parse(sessionStorage.getItem(springList[i]));
-    console.log(storedParks);
+    console.log(storedParks.name);
 
     // let cardEl = document.createElement('div');
     // cardEl.classList = "springcard bg-light";
@@ -290,40 +290,5 @@ newSpring.addEventListener("click", function(event) {
 
 
 
+populateCards()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
