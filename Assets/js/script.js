@@ -19,11 +19,9 @@ const modal = document.getElementById("myModal");
 const btnNew = document.getElementById("btnNew");
 const close = document.getElementsByClassName("close")[0];
 const newSpring = document.querySelector("#newSpring");
-console.log(newSpring);
 const springNameM = document.querySelector("#springnamem");
 const descriptionM = document.querySelector("#descriptionm");
 const campingM = document.getElementById("campingm");
-console.log(campingM.checked);
 const addressM = document.querySelector("#addressm");
 const petFriendlyM = document.getElementById("petfriendlym");
 
@@ -143,7 +141,9 @@ navigator.geolocation.getCurrentPosition(function(position) {
 // // Initialize the filter with no options selected
 // filterParks();
 
-
+function generateSpringCard() {
+  
+}
 
 
 
