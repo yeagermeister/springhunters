@@ -213,9 +213,9 @@ let itchetuckneeSprings = {
     camping: false,
     gatordanger: false,
     scuba: true,
-    lat: 28.7022,
-    lng: -82.9758
- }
+    lat: 29.9911,
+    lng: -82.7590
+ };
 
 let madisonSprings = {
     name: 'Madison Springs',
@@ -232,7 +232,7 @@ let madisonSprings = {
     scuba: true,
     lat: 30.4813,
     lng: -83.2448
- }
+ };
 
  let royalSprings = {
     name: 'Royal Springs',
@@ -249,7 +249,7 @@ let madisonSprings = {
     scuba: false,
     lat: 30.0842,
     lng: -83.0747
- }
+ };
 
  let bobsRiverPlace = {
     name: "Bob's River Place",
@@ -266,14 +266,14 @@ let madisonSprings = {
     scuba: false,
     lat: 30.0842,
     lng: -83.0747
- }
+ };
 
 let parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
 
 // Send all park info to session storage so it can be read by other script files
  function init() {
     sessionStorage.setItem(`parks`, JSON.stringify(parks));
-    for (let i = 1; i < parks.length; i++){
+    for (let i = 0; i < parks.length; i++){
         sessionStorage.setItem(parks[i].name, JSON.stringify(parks[i]))
     }
  };
@@ -296,7 +296,7 @@ let parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginni
 
  const stateParks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
 
-let springList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Weeki Wachee Springs State Park", "Royal Springs", "Bob's River Place"];
+let springList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Madison Springs", "Royal Springs", "Bob's River Place"];
 
 function populateCards() {
   for (let i = 0; i < parks.length; i++) {
@@ -459,9 +459,6 @@ navigator.geolocation.getCurrentPosition(function(position) {
 // // Initialize the filter with no options selected
 // filterParks();
 
-function generateSpringCard() {
-
-}
 
 
 
@@ -494,7 +491,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function performSearch(searchTerm) {
   // Replace this with our own search function that returns an array of search results after we create them
   return [`Result 1 for "${searchTerm}"`, `Result 2 for "${searchTerm}"`];
-}
+};
 //Code above is for index.html//
 
 // Replace YOUR_API_KEY with your actual API key
