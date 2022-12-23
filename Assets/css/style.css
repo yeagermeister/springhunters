@@ -175,6 +175,7 @@ main {
   cursor: pointer;
 }
 
+
 /* ******************************************* */
 /* *********** Star Rating ******************* */
 /* ******************************************* */
@@ -209,3 +210,17 @@ main {
   background:#F90;
   color:#FFF;
 }
+
+
+/**********Media query**********
+@media screen and (max-width: 800px) {
+  body {
+    background-color: lightblue;
+
+  }
+  .springcard h2 {
+    width: 200px;
+    height: 100px;
+    font-size: ;
+  }
+} */
