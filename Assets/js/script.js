@@ -14,6 +14,8 @@ const main = document.querySelector('main');
 const springCards = document.querySelectorAll('.springcard');
 const submit = document.querySelector('#searchBtn');
 
+const cardContainerEl = document.querySelector("#card-container");
+
 // Elements for the modal
 const modal = document.getElementById("myModal");
 const btnNew = document.getElementById("btnNew");
@@ -42,7 +44,66 @@ let bobsRiverPlace = 'Bobs'
 
 const stateParks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
 
-// Get DOM elements
+let springList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Srings State Park", "Weeki Wachee Springs State Park", "Royal Springs", "Bob's River Place"];
+
+function populateCards() {
+  for (let i = 0; i < springList.length; i++) {
+    let storedParks = JSON.parse(sessionStorage.getItem(springList[i]));
+    console.log(storedParks);
+
+    // let cardEl = document.createElement('div');
+    // cardEl.classList = "springcard bg-light";
+
+    // let headingEl = document.createElement('h2');
+    // headingEl.classList = "text-primary"
+    // headingEl.textContent = storedParks.name
+
+    // let imgEl = document.createElement('img');
+    // imgEl.classList = "card-image";
+    // imgEl.setAttribute("src", storedParks.imgUrl)
+    // imgEl.setAttribute("alt", "image of a spring")
+
+    // let paraEl = document.createElement('p');
+    // paraEl.textContent = storedParks.description;
+
+    // let distanceEl = document.createElement('p');
+    // distanceEl.textContent = " miles away."
+
+    // let distanceSpanEl = document.createElement('span');
+    // distanceSpanEl.classList = "distance-span";
+    // distanceSpanEl.setAttribute("id", "distance-" + i);
+
+    // let spanEl = document.createElement('span');
+    // spanEl.classList = "wicon"
+    // spanEl.setAttribute("id", "weather-" + i)
+
+    // cardContainerEl.appendChild(cardEl);
+    // cardEl.appendChild(headingEl);
+    // cardEl.appendChild(paraEl);
+    
+    // cardEl.appendChild(distanceEl);
+    // distanceEl.appendChild(distanceSpanEl);
+    // distanceEl.appendChild(spanEl);
+  }
+};
+
+
+
+// <div class="springcard bg-light">
+// <h2 class="text-primary"><a href="./springs.html">Silver Springs<br>State Park</a></h2>
+// <img class="card-image" src="./Assets/images/Silver-Springs.jpg" style= "max-width: 100%" alt="Picture of Silver Springs">
+// <p>The 4,000-acre Silver Springs State Park encompasses not only the springs, but the entire 5-mile Silver River and surrounding sandhill forest.</p>
+// <p>
+//   <span id="distance"></span>
+//   miles away. 
+//   <span class="wicon">
+//   <!-- <img>Embedd the image for the weather icon here after we get the api fgured out</img> -->
+//   </span>
+// </p>
+// </div>
+
+
+
 
 
 navigator.geolocation.getCurrentPosition(function(position) {
@@ -54,8 +115,6 @@ navigator.geolocation.getCurrentPosition(function(position) {
   console.log(userLoc.lat)
   console.log(userLoc.lon)
 });
-
-
 
 
 
@@ -142,7 +201,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 // filterParks();
 
 function generateSpringCard() {
-  
+
 }
 
 
