@@ -1,5 +1,6 @@
 // Define Springs
 // These variables have to be declared with let because the distance and weather icon will be updated
+var storedParks = JSON.parse(sessionStorage.getItem(`parks`))
 let wekiwaSprings = {
     name: 'Wekiwa Springs State Park',
     description: 'Wekiwa Springs State Park is a 7,000-acre Florida State Park in Apopka, Florida. With emerald springs feeding the Wekiwa River and lush tropical hammocks, this unique park just minutes from downtown Orlando is perfect for observing abundant wildlife or cooling off on a summer day',
@@ -13,7 +14,7 @@ let wekiwaSprings = {
     camping: true,
     gatordanger: false,
     scuba: false,
-    location: "lat: 28.711243, lon: -81.463754"
+    location: "lat: 28.711243, lng: -81.463754"
 };
   
 let silverSprings = {
@@ -229,6 +230,7 @@ let parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginni
 
 // Send all park info to session storage so it can be read by other script files
  function init() {
+    sessionStorage.setItem(`parks`, JSON.stringify(parks));
     for (let i = 1; i < parks.length; i++){
         sessionStorage.setItem(parks[i].name, JSON.stringify(parks[i]))
     }
