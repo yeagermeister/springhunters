@@ -10,7 +10,6 @@ let gatorEl = document.querySelector("#gator");
 let scubaEl = document.querySelector("#scuba");
 let ratingEl = document.querySelector("#rating");
 let noteEl = document.querySelector("#notetext");
-
 var park = "Wekiwa Springs State Park";
 
 let dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Srings State Park", "Weeki Wachee Springs State Park", "Royal Springs", "Bob's River Place"];
@@ -156,7 +155,7 @@ function updateWeather(newZipcode) {
       // If the values match, retrieve the value property of the object
       let parkLoc = storedParks[i].zipcode;
       // You can now use the value variable in your code
-      return parkLoc
+      
     }}
 }
 
@@ -165,7 +164,8 @@ var mapId = document.getElementById("map");
 var parkName = document.getElementById("parkname");
 var storedParks = JSON.parse(sessionStorage.getItem(`parks`));
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
-var parkLoc;
+var parkLat;
+var parkLng;
 var map = mapId;
 
 window.onload = function() {
@@ -178,25 +178,26 @@ window.onload = function() {
 // Loop through the array of objects
 for (var i = 0; i < storedParks.length; i++) {
   // Check if the element's value matches the title of the current object
-  if (parkName.value == storedParks[i].name) {console.log(parkName.value, storedParks[i].name) 
+  if (parkName.innerHTML == storedParks[i].name) {
     // If the values match, retrieve the value property of the object
-    let parkLoc = park[i].location;
+    var parkLat = storedParks[i].lat;
+    var parkLng = storedParks[i].lng;
     // You can now use the value variable in your code
-    return parkLoc
+    
   }
 }
-console.log(parkLoc)
+console.log(parkLat, parkLng)
     // Set up the map options
 
     const mapOptions = {
       zoom: 10,
-      center: new google.maps.LatLng(28.711243, -81.463754)
+      center: new google.maps.LatLng(parkLat, parkLng)
     };
     // Create the map
     const map = new google.maps.Map(mapId, mapOptions);
     // Add a marker to the map at the specified coordinates
     const marker = new google.maps.Marker({
-      position: {location},
+      position: {lat: parkLat, lng: parkLng},
       map: map
     });
 
