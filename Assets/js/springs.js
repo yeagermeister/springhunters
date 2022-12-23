@@ -13,14 +13,15 @@ let noteEl = document.querySelector("#notetext");
 
 let park = "Wekiwa Springs State Park";
 
-let dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Weeki Wachee Springs State Park", "Royal Springs", "Bob's River Place"];
+let dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Madison Springs", "Royal Springs", "Bob's River Place"];
 
 // weather API variables
 let locationEl = document.querySelector('#parkname');
 let location = locationEl.innerHTML
 storedParks = JSON.parse(sessionStorage.getItem(location));
 let zipcode = storedParks.zipcode;
-
+console.log(location);
+console.log (storedParks);
 
 
 // Google Maps Variables
@@ -34,7 +35,7 @@ let zipCode;
 
 // This will run on page load to populate the drop dow list
 function populateDropdown() {
-    for (let i = 1; i < dropdownList.length; i++) {
+    for (let i = 0; i < dropdownList.length; i++) {
       let optionEl = document.createElement('option');
       optionEl.textContent = dropdownList[i];
       dropdownEl.appendChild(optionEl);
@@ -42,7 +43,7 @@ function populateDropdown() {
 };
 
 function populateParkInfo(park) {
-  console.log(park.name);
+  console.log(park);
   parknameEl.textContent = park.name;
   descriptionEl.textContent = park.description;
   distanceEl.textContent = "miles";
