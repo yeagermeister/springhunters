@@ -281,6 +281,17 @@ const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
     for (let i = 0; i < parks.length; i++){
         sessionStorage.setItem(parks[i].name, JSON.stringify(parks[i]))
     }
+
+   navigator.geolocation.getCurrentPosition(function(position) {
+
+  let userLoc = {
+     lat: position.coords.latitude,
+     lon: position.coords.longitude 
+  }
+  console.log(userLoc.lat)
+  console.log(userLoc.lon)
+  sessionStorage.setItem("userLoc", JSON.stringify(userLoc));
+});
     // generate the spring cards on index.html 
     populateCards();
  };
@@ -332,17 +343,6 @@ function populateCards() {
     distanceEl.appendChild(spanEl);
   }
 };
-
-// This needs placed inside a function
-navigator.geolocation.getCurrentPosition(function(position) {
-
-  let userLoc = {
-     lat: position.coords.latitude,
-     lon: position.coords.longitude 
-  }
-  console.log(userLoc.lat)
-  console.log(userLoc.lon)
-});
 
 function filterResults(userSP, userPet, userCamp, userGator, userScuba, userFee, zipCode) {
   
