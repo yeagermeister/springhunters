@@ -66,13 +66,13 @@ console.log(parkLoc)
     // Set up the map options
     const mapOptions = {
       zoom: 10,
-      center: new google.maps.LatLng(28.711243, -81.463754)
+      center: new google.maps.LatLng(parkLoc)
     };
     // Create the map
     const map = new google.maps.Map(mapId, mapOptions);
     // Add a marker to the map at the specified coordinates
     const marker = new google.maps.Marker({
-      position: {location},
+      position: {parkLoc},
       map: map
     });
 // let labels = springNames[i][0]
