@@ -1,3 +1,5 @@
+let zipCode;
+var storedParks = "";
 function getWeather() {
   const API_KEY = '4a9c9446f7msh1bdc5860de01184p135179jsne7c04d560051';
   const API_HOST = 'weatherapi-com.p.rapidapi.com';
@@ -10,9 +12,13 @@ function getWeather() {
     }
   };
 
-  var storedParks = JSON.parse(sessionStorage.getItem(`parks`))
+  var location = document.querySelector('#parkname');
+  var temp = location.innerHTML
+  console.log(temp)
 
-  let zipcode = storedParks.zipcode;
+ storedParks = JSON.parse(sessionStorage.getItem(temp));
+
+  const zipcode = storedParks.zipcode;
 
 
 

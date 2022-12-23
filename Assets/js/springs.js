@@ -92,9 +92,10 @@ $("#dropdown").on("change", function() {
   let value = dropdownEl.options[dropdownEl.selectedIndex].value;
   park = JSON.parse(sessionStorage.getItem(value));
   populateParkInfo(park);
-  personalRating = JSON.parse(localStorage.getItem(park.name + " rating"));
-  personalNote = JSON.parse(localStorage.getItem(park.name + " note"));
-  populatePersonalInfo(personalRating, personalNote);
+ // personalRating = JSON.parse(localStorage.getItem(park.name + " rating"));
+  //personalNote = JSON.parse(localStorage.getItem(park.name + " note"));
+  //populatePersonalInfo(personalRating, personalNote);
+  getWeather();
 });
 
 populateDropdown();
