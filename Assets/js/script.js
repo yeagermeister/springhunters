@@ -1,18 +1,18 @@
 // Select DOM elements
-const header = document.querySelector('header');
-const h1 = document.querySelector('h1');
-const filterOption = document.querySelector('#filterOption');
-const ul = document.querySelector('ul');
-const statePark = document.querySelector('#statePark');
-const petFriendly = document.querySelector('#petFriendly');
-const campingAllowed = document.querySelector('#campingAllowed');
-const gatorDanger = document.querySelector('#gatorDanger');
-const scubaDiving = document.querySelector('#scubaDiving');
-const pricingFee = document.querySelector('#pricingFee');
-const zipCode = document.querySelector('#zipCode');
-const main = document.querySelector('main');
-const springCards = document.querySelectorAll('.springcard');
-const submit = document.querySelector('#searchBtn');
+// const header = document.querySelector('header');
+// const h1 = document.querySelector('h1');
+// const filterOption = document.querySelector('#filterOption');
+// const ul = document.querySelector('ul');
+const stateParkEl = document.querySelector('#statePark');
+const petFriendlyEl = document.querySelector('#petFriendly');
+const campingAllowedEl = document.querySelector('#campingAllowed');
+const gatorDangerEl = document.querySelector('#gatorDanger');
+const scubaDivingEl = document.querySelector('#scubaDiving');
+const pricingFeeEl = document.querySelector('#pricingFee');
+const zipCodeEl = document.querySelector('#zipCode');
+// const main = document.querySelector('main');
+// const springCards = document.querySelectorAll('.springcard');
+const submitEl = document.querySelector('#searchBtn');
 
 const cardContainerEl = document.querySelector("#card-container");
 
@@ -67,7 +67,7 @@ let silverSprings = {
 let rainbowSprings = {
     name: 'Rainbow Springs State Park',
     description: 'Rainbow Springs State Park is a Florida State Park located on the southwest side of Dunnellon, Florida. The park includes the Rainbow River, a popular destination for swimming, snorkeling, and scuba diving.',
-    imageUrl: './Assets/images/Rainbow-Springs-Park.jpg',
+    imageUrl: './Assets/images/Rainbow-Springs-Park.jpeg',
     distance: '',
     weather: '',
     zipcode: 34432,
@@ -169,7 +169,7 @@ let fanningSprings = {
 let manateeSprings = {
     name: 'Manatee Springs State Park',
     description: 'Manatee Springs State Park is a Florida State Park located in Chiefland, Florida. The park is home to Manatee Springs, a first magnitude spring and a popular destination for swimming, snorkeling, and scuba diving.',
-    imageUrl: './Assets/images/Manatee-Springs-State.jpg',
+    imageUrl: './Assets/images/Manatee-Spring-State.jpg',
     distance: '',
     weather: '',
     zipcode: 32626,
@@ -203,7 +203,7 @@ let weekiWacheeSprings = {
 let itchetuckneeSprings = {
     name: 'Ichetucknee Springs State Park',
     description: 'Green space with river tubing in the summer',
-    imageUrl: './Assets/images/itchetucknee-Blue-Hole.jpg',
+    imageUrl: './Assets/images/Ichetucknee-Blue-Hole.jpg',
     distance: '',
     weather: '',
     zipcode: 32038,
@@ -252,7 +252,7 @@ let madisonSprings = {
  };
 
  let bobsRiverPlace = {
-    name: "Bob's River Place",
+    name: "Bobs River Place",
     description: "Bob's is a swimming hole on the Suwanee river.  It has slides, platforms and swings, among other activities.  Bob recently passed away, and the family is trying to get the place up and running for the 2023 season",
     imageUrl: './Assets/images/Bobs-River-Place.jpg',
     distance: '',
@@ -268,50 +268,37 @@ let madisonSprings = {
     lng: -83.0747
  };
 
-let parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
 
-// Send all park info to session storage so it can be read by other script files
+let parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
+let springList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Madison Springs", "Royal Springs", "Bobs River Place"];
+
+// Which API is this for?
+const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
+
  function init() {
+    // Send all park info to session storage so they can be read by springs.html
     sessionStorage.setItem(`parks`, JSON.stringify(parks));
     for (let i = 0; i < parks.length; i++){
         sessionStorage.setItem(parks[i].name, JSON.stringify(parks[i]))
     }
+    // generate the spring cards on index.html 
+    populateCards();
  };
-
-
-// let wekiwaSprings = 'Wekiwa'
-// let silverSprings = 'Silver'
-// let ginnieSprings ='Ginnie'
-// let itchetuckneeSprings = 'Itchentucknee'
-// let madisonSprings ='Madison'
-// let manateeSprings = 'Manatee'
-// let rainbowSprings = 'Rainbow'
-// let rockSpringsRun = 'RockSpring'
-// let blueSpring = 'BlueSpring'
-// let deLeonSprings = 'DeLeon'
-// let fanningSprings = 'Fanning'
-// let weekiWacheeSprings = 'Weeki'
-// let royalSprings = 'Royal'
-// let bobsRiverPlace = 'Bobs'
-
- const stateParks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
-
-let springList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Madison Springs", "Royal Springs", "Bob's River Place"];
 
 function populateCards() {
   for (let i = 0; i < parks.length; i++) {
-  //  let storedParks = [1, 2, 3, 4];
     let storedParks = parks[i];
    
     let cardEl = document.createElement('div');
     cardEl.classList = "springcard bg-light";
-    cardEl.setAttribute("parkname", storedParks.name)
-    cardEl.setAttribute("fees", storedParks.fees)
-    cardEl.setAttribute("pets", storedParks.pets)
-    cardEl.setAttribute("statepark", storedParks.statepark)
-    cardEl.setAttribute("camping", storedParks.camping)
-    cardEl.setAttribute("gator", storedParks.gatordanger)
-    cardEl.setAttribute("scuba", storedParks.scuba)
+    let shortName = parks[i].name.substring(0,4);
+    cardEl.setAttribute("id", shortName)
+    // cardEl.setAttribute("fees", storedParks.fees)
+    // cardEl.setAttribute("pets", storedParks.pets)
+    // cardEl.setAttribute("statepark", storedParks.statepark)
+    // cardEl.setAttribute("camping", storedParks.camping)
+    // cardEl.setAttribute("gator", storedParks.gatordanger)
+    // cardEl.setAttribute("scuba", storedParks.scuba)
 
     let headingEl = document.createElement('h2');
     headingEl.classList = "text-primary"
@@ -346,25 +333,7 @@ function populateCards() {
   }
 };
 
-
-
-// <div class="springcard bg-light">
-// <h2 class="text-primary"><a href="./springs.html">Silver Springs<br>State Park</a></h2>
-// <img class="card-image" src="./Assets/images/Silver-Springs.jpg" style= "max-width: 100%" alt="Picture of Silver Springs">
-// <p>The 4,000-acre Silver Springs State Park encompasses not only the springs, but the entire 5-mile Silver River and surrounding sandhill forest.</p>
-// <p>
-//   <span id="distance"></span>
-//   miles away. 
-//   <span class="wicon">
-//   <!-- <img>Embedd the image for the weather icon here after we get the api fgured out</img> -->
-//   </span>
-// </p>
-// </div>
-
-
-
-
-
+// This needs placed inside a function
 navigator.geolocation.getCurrentPosition(function(position) {
 
   let userLoc = {
@@ -375,129 +344,52 @@ navigator.geolocation.getCurrentPosition(function(position) {
   console.log(userLoc.lon)
 });
 
-
-
-// Loop through each spring card and check if it meets the selected filter criteria
-  // springCards.forEach(card => {
-  //   const park = window[card.querySelector('h2').textContent.toLowerCase()];
-  //   let showCard = true;
-
-  //   if (statepark && !park.statepark) {
-  //     showCard = false;
-  //   }
-  //   if (petFriendly && !park.petFriendly) {
-  //     showCard = false;
-  //   }
-  //   if (campingAllowed && !park.campingAllowed) {
-  //     showCard = false;
-  //   }
-  //   if (gatorDanger && !park.gatorDanger) {
-  //     showCard = false;
-  //   }
-  //   if (scubaDiving && !park.scubaDiving) {
-  //     showCard = false;
-  //   }
-  //   if (pricingFee && park.fees !== 'Free') {
-  //     showCard = false;
-  //   }
-  //   if (zipCode && park.zipcode.toString().indexOf(zipCode) === -1) {
-  //     showCard = false;
-  //   }
+function filterResults(userSP, userPet, userCamp, userGator, userScuba, userFee, zipCode) {
   
-  //   // Show or hide the card based on the filter criteria
-  //   if (showCard) {
-  //     card.style.display = 'block';
-  //   }
-  // });
+    for (let i = 0; i < parks.length; i++) {
+      let storedParks = parks[i];
+      let shortName = "#" + parks[i].name.substring(0,4);
+      let cardEl = document.querySelector(shortName);
+        // if ((userSP === true) && (storedParks.statepark === true)) {
+        //     cardEl.classList = "springcard bg-light";
+        // } else {cardEl.classList = "display-none"};
 
-  // statePark.checked;
-  // petFriendly.checked;
-  // campingAllowed.checked;
-  // gatorDanger.checked;
-  // scubaDiving.checked;
-  // pricingFee.checked;
-  // zipCode.value;
-  
+        // if (userPet === false && storedParks.pets === false) {
+        //   cardEl.classList = "springcard bg-light";
+        // }else {cardEl.classList = "display-none"};
 
-  // Loop through the spring cards
-  // springCards.forEach(springCard => {
-    // Check if the spring card matches the selected filter options
-    // const matchesStatepark = !statepark || springCard.dataset.statepark === 'true';
-    // const matchesPetFriendly = !petFriendly || springCard.dataset.petfriendly === 'true';
-    // const matchesCampingAllowed = !campingAllowed || springCard.dataset.camping === 'true';
-    // const matchesGatorDanger = !gatorDanger || springCard.dataset.gatordanger === 'true';
-    // const matchesScubaDiving = !scubaDiving || springCard.dataset.scuba === 'true';
-    // const matchesPricingFee = !pricingFee || springCard.dataset.fees === 'Free';
-    // const matchesZipCode = !zipCode || springCard.dataset.zipcode === zipCode;
-
-    // Show or hide the spring card based on whether it matches the selected filter options
-    // if (matchesStatepark && matchesPetFriendly && matchesCampingAllowed && matchesGatorDanger && matchesScubaDiving && matchesPricingFee && matchesZipCode) {
-    //   springCard.style.display = 'block';
-    // } else {
-    //   springCard.style.display = 'none';
-    // }
-  // });
-
-
-
-// const filterOptionCheckboxes = document.querySelectorAll('input[type=checkbox]');
-// const zipCodeInput = document.querySelector('#zipCodeInput');
-
-// filterOptionCheckboxes.forEach(checkbox => {
-//   checkbox.addEventListener('change', filterParks);
-// });
-
-// zipCodeInput.addEventListener('input', filterParks);
-
-// // What is #submit?
-// document.querySelector('#submit').addEventListener('submit', 
-// function(event) {
-//   console.log(event);
-// });
-
-
-// // Initialize the filter with no options selected
-// filterParks();
-
-
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  const searchForms = document.querySelectorAll("#search-form");
-  searchForms.forEach(function(searchForm) {
-    searchForm.addEventListener("submit", function(event) {
-      event.preventDefault();
-      const searchInput = searchForm.querySelector("#search-input");
-      const searchTerm = searchInput.value;
-
-      // Perform search and get search results
-      const searchResults = performSearch(searchTerm);
-
-      // Clear previous search results
-      searchForm.nextElementSibling.innerHTML = "";
-
-      // Display search results
-      searchResults.forEach(function(result) {
-        const resultElement = document.createElement("div");
-        resultElement.innerHTML = result;
-        searchForm.nextElementSibling.appendChild(resultElement);
-      });
-    });
-  });
-});
-function performSearch(searchTerm) {
-  // Replace this with our own search function that returns an array of search results after we create them
-  return [`Result 1 for "${searchTerm}"`, `Result 2 for "${searchTerm}"`];
+        // if ((userCamp === true && storedParks.camping === true)) {
+        //   cardEl.classList = "springcard bg-light";
+        // }else {cardEl.classList = "display-none"};
+        // if (userGator && storedParks.gatordanger) {
+        //   cardEl.classList = "springcard bg-light";
+        // }else {cardEl.classList = "display-none"};
+        // if (userScuba && storedParks.scuba) {
+        //   cardEl.classList = "springcard bg-light";
+        // }else {cardEl.classList = "display-none"};
+        // if ((userPet === true) && (storedParks.pets == "free")) {
+        //   cardEl.classList = "springcard bg-light";
+        // }else {cardEl.classList = "display-none"};
+    }
 };
-//Code above is for index.html//
 
-// Replace YOUR_API_KEY with your actual API key
-const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
-//finds the users location
 
+// ******************************************
+// *******Search listener *******************
+// ******************************************
+
+submitEl.addEventListener("click", function(event) {
+  event.preventDefault;
+
+  let userSP = stateParkEl.checked;
+  let userPet = petFriendlyEl.checked;
+  let userCamp = campingAllowedEl.checked;
+  let userGator = gatorDangerEl.checked;
+  let userScuba = scubaDivingEl.checked;
+  let userFee = pricingFeeEl.checked;
+  let zipCode = zipCodeEl.value.trim();
+  filterResults(userSP, userPet, userCamp, userGator, userScuba, userFee, zipCode)
+});
 
 // ******************************************
 // *******Modal listeners *******************
@@ -539,8 +431,9 @@ newSpring.addEventListener("click", function(event) {
   document.location.replace("./newspring.html")
 });
 
-populateCards();
-
+// ******************************************
+// ********** End of listeners **************
+// ******************************************
 
 init();
 

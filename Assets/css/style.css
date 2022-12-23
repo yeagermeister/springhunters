@@ -102,6 +102,7 @@ margin-inline-end: 0px;
 main {
   background-repeat: no-repeat;
   background-size: 0% 0% 50% 50%;
+  background-image: url("../../Assets/images/background-image.jpg");
 }
 
 .mySearch{
@@ -132,6 +133,7 @@ main {
   border-color: black;
   border-radius: 5px;
 }
+
 
 /* ******************************************* */
 /* ***********Modal Section******************* */
