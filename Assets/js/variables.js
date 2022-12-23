@@ -13,8 +13,8 @@ let wekiwaSprings = {
     camping: true,
     gatordanger: false,
     scuba: false,
-    lat: "28.711243",
-    lon: "-81.463754"};
+    location: "lat: 28.711243, lon: -81.463754"
+};
   
 let silverSprings = {
     name: 'Silver Springs State Park',
@@ -29,8 +29,7 @@ let silverSprings = {
     camping: true,
     gatordanger: true,
     scuba: false,
-    lat: "29.2165",
-    lon: "-82.0570"
+    location: "lat: 29.2165, lon: -82.0570"
 };
   
 let rainbowSprings = {
@@ -46,8 +45,7 @@ let rainbowSprings = {
     camping: true,
     gatordanger: false,
     scuba: true,
-    lat: "29.1023",
-    lon: "-82.4379"
+    location: "lat: 29.1023, lon: -82.4379"
 };
   
 let rockSpringsRun = {
@@ -63,8 +61,7 @@ let rockSpringsRun = {
     camping: true,
     gatordanger: false,
     scuba: true,
-    lat: "28.7950", 
-    lon: "-81.4527"
+    location: "lat: 28.7950, lon: -81.4527"
 };
   
 let ginnieSprings = {
@@ -80,8 +77,7 @@ let ginnieSprings = {
     camping: true,
     gatordanger: false,
     scuba: true,
-    lat: "29.8343",
-    lon: "-82.7024"
+    location: "lat: 29.8343, lon: -82.7024"
 };
   
 let blueSpring = {
@@ -97,8 +93,7 @@ let blueSpring = {
     camping: true,
     gatordanger: false,
     scuba: false,
-    lat: "28.9480",
-    lon: "-81.3370"
+    location: "lat: 28.9480, lon: -81.3370"
 };
   
 let deLeonSprings = {
@@ -114,8 +109,7 @@ let deLeonSprings = {
     camping: true,
     gatordanger: false,
     scuba: false,
-    lat: "29.1354",
-    lon: "-81.3621"
+    location: "lat: 29.1354, lon: -81.3621"
 };
   
 let fanningSprings = {
@@ -131,8 +125,8 @@ let fanningSprings = {
     camping: true,
     gatordanger: false,
     scuba: false,
-    lat: "29.5905",
-    lon: "-82.9325"
+    location: "lat: 29.5905, lon: -82.9325"
+    
 };
   
 let manateeSprings = {
@@ -148,8 +142,7 @@ let manateeSprings = {
     camping: true,
     gatordanger: false,
     scuba: false,
-    lat: "29.4975",
-    lon: "-82.9758"
+    location: "lat: 29.4975, lon: -82.9758"
 };
   
 let weekiWacheeSprings = {
@@ -165,8 +158,7 @@ let weekiWacheeSprings = {
     camping: true,
     gatordanger: false,
     scuba: false,
-    lat: "28.5179",
-    lon: "-82.5747"
+    location: "lat: 28.5179, lon: -82.5747"
 };
 
 let itchetuckneeSprings = {
@@ -182,8 +174,7 @@ let itchetuckneeSprings = {
     camping: false,
     gatordanger: false,
     scuba: true,
-     lat: "28.7022",
-     lon: "-82.7618"
+    location: "lat: 28.7022, lon: -82.9758"
  }
 
 let madisonSprings = {
@@ -199,8 +190,7 @@ let madisonSprings = {
     camping: false,
     gatordanger: false,
     scuba: true,
-     lat: "30.4813",
-     lon: "-83.2448"
+    location: "lat: 30.4813, lon: -83.2448"
  }
 
  let royalSprings = {
@@ -216,8 +206,7 @@ let madisonSprings = {
     camping: false,
     gatordanger: false,
     scuba: false,
-     lat: "30.0842",
-     lon: "-83.0747"
+    location: "lat: 30.0842, lon: -83.0747"
  }
 
  let bobsRiverPlace = {
@@ -233,8 +222,7 @@ let madisonSprings = {
     camping: false,
     gatordanger: false,
     scuba: false,
-     lat: "30.0842",
-     lon: "-83.0747"
+    location: "lat: 30.0842, lon: -83.0747"
  }
 
 let parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
