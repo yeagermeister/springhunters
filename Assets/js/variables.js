@@ -184,8 +184,8 @@ let itchetuckneeSprings = {
     camping: false,
     gatordanger: false,
     scuba: true,
-    lat: 28.7022,
-    lng: -82.9758
+    lat: 29.9833,
+    lng: -82.7616
  }
 
 let madisonSprings = {

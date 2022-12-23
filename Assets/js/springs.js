@@ -11,6 +11,9 @@ let scubaEl = document.querySelector("#scuba");
 let ratingEl = document.querySelector("#rating");
 let noteEl = document.querySelector("#notetext");
 
+
+
+
 let park = "Wekiwa Springs State Park";
 
 let dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Madison Springs", "Royal Springs", "Bob's River Place"];
@@ -28,10 +31,17 @@ console.log (storedParks);
 var mapId = document.getElementById("map");
 var parkName = document.getElementById("parkname");
 var storedParks = JSON.parse(sessionStorage.getItem(`parks`));
+var userCoords = JSON.parse(sessionStorage.getItem(`userLoc`));
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 var parkLoc;
 var map = mapId;
 let zipCode;
+let distance;
+let marker;
+var miles;
+ console.log(miles)
+
+ 
 
 // This will run on page load to populate the drop dow list
 function populateDropdown() {
@@ -41,12 +51,12 @@ function populateDropdown() {
       dropdownEl.appendChild(optionEl);
     }
 };
-
+console.log(miles)
 function populateParkInfo(park) {
   console.log(park);
   parknameEl.textContent = park.name;
   descriptionEl.textContent = park.description;
-  distanceEl.textContent = "miles";
+  distanceEl.textContent = miles +"miles";
   admissionEl.textContent = park.fees;
   zipcode = park.zipcode
   if (park.pets) {
@@ -180,7 +190,7 @@ for (var i = 0; i < storedParks.length; i++) {
   }
 }
 
-console.log(parkLat, parkLng)
+console.log(userCoords)
 console.log(location)
     // Set up the map options
 
@@ -195,6 +205,14 @@ console.log(location)
       position: {lat: parkLat, lng: parkLng},
       map: map
     });
+    var markerLoc = marker.getPosition();
+    var userLoc = new google.maps.LatLng(userCoords.lat, userCoords.lon);
+
+    console.log(userLoc)
+    // Calculate the distance between the user's location and the marker's location
+    var distance = google.maps.geometry.spherical.computeDistanceBetween(userLoc, markerLoc);
+    let miles = Math.ceil(distance / 1609.344); // distance in miles, rounded up to the nearest whole mile
+    console.log(`Distance: ${miles} miles`); 
 
 
   };
