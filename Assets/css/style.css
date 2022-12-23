@@ -54,6 +54,7 @@ list-style-type: none;
 
 li {
 font-size: medium;
+margin-bottom: 5px;
 }
 
 .wicon {
@@ -126,6 +127,12 @@ main {
   margin-top: 45%;
 }
 
+.textBtn {
+  border: 2px;
+  border-color: black;
+  border-radius: 5px;
+}
+
 /* ******************************************* */
 /* ***********Modal Section******************* */
 /* ******************************************* */
@@ -167,6 +174,43 @@ main {
   text-decoration: none;
   cursor: pointer;
 }
+
+
+/* ******************************************* */
+/* *********** Star Rating ******************* */
+/* ******************************************* */
+.rating {
+  /* float:left; */
+  width: 100%;
+}
+/* .rating span { float:right; position:relative; } */
+.rating span input {
+  position:absolute;
+  top:0px;
+  left:0px;
+  opacity:0;
+}
+.rating span label {
+  display:inline-block;
+  width:30px;
+  height:30px;
+  text-align:center;
+  color:#FFF;
+  background:#ccc;
+  font-size:30px;
+  margin-right:2px;
+  line-height:30px;
+  border-radius:50%;
+}
+
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+  background:#F90;
+  color:#FFF;
+}
+
 
 /**********Media query**********
 @media screen and (max-width: 800px) {
