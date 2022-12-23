@@ -201,7 +201,7 @@ let weekiWacheeSprings = {
 };
 
 let itchetuckneeSprings = {
-    name: 'Ichetucknee Srings State Park',
+    name: 'Ichetucknee Springs State Park',
     description: 'Green space with river tubing in the summer',
     imageUrl: './Assets/images/itchetucknee-Blue-Hole.jpg',
     distance: '',
@@ -296,7 +296,7 @@ let parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginni
 
  const stateParks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginnieSprings, blueSpring, deLeonSprings, fanningSprings, manateeSprings, weekiWacheeSprings, itchetuckneeSprings, madisonSprings, royalSprings, bobsRiverPlace];
 
-let springList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Srings State Park", "Weeki Wachee Springs State Park", "Royal Springs", "Bob's River Place"];
+let springList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Weeki Wachee Springs State Park", "Royal Springs", "Bob's River Place"];
 
 function populateCards() {
   for (let i = 0; i < parks.length; i++) {
