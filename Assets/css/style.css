@@ -63,7 +63,7 @@ float: right;
 
 .card-image {
 height: 215px;
-width: 285px;
+width: 280px;
 border-width: 5px;
 border-style: solid;
 border-color: rgb(181,229,227);
@@ -103,6 +103,7 @@ main {
   background-repeat: no-repeat;
   background-size: 0% 0% 50% 50%;
   background-image: url("../../Assets/images/background-image.jpg");
+  background-color:#c5dfec;
 }
 
 .mySearch{
@@ -132,6 +133,10 @@ main {
   border: 2px;
   border-color: black;
   border-radius: 5px;
+}
+
+#zipCode {
+width: 160px;
 }
 
 
