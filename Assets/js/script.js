@@ -1,8 +1,4 @@
 // Select DOM elements
-// const header = document.querySelector('header');
-// const h1 = document.querySelector('h1');
-// const filterOption = document.querySelector('#filterOption');
-// const ul = document.querySelector('ul');
 const stateParkEl = document.querySelector('#statePark');
 const petFriendlyEl = document.querySelector('#petFriendly');
 const campingAllowedEl = document.querySelector('#campingAllowed');
@@ -10,8 +6,6 @@ const gatorDangerEl = document.querySelector('#gatorDanger');
 const scubaDivingEl = document.querySelector('#scubaDiving');
 const pricingFeeEl = document.querySelector('#pricingFee');
 const zipCodeEl = document.querySelector('#zipCode');
-// const main = document.querySelector('main');
-// const springCards = document.querySelectorAll('.springcard');
 const submitEl = document.querySelector('#searchBtn');
 
 const cardContainerEl = document.querySelector("#card-container");
@@ -346,6 +340,9 @@ function filterResults(userSP, userPet, userCamp, userGator, userScuba, userFee,
       let cardEl = document.querySelector(shortName);
       cardEl.classList = "springcard bg-light";
 
+        if ((userSP === false) && (storedParks.statepark === true)) {
+          cardEl.classList = "display-none";
+        }
         if ((userSP === true) && (storedParks.statepark === false)) {
           cardEl.classList = "display-none";
         }
