@@ -9,6 +9,7 @@ const zipCodeEl = document.querySelector('#zipCode');
 const submitEl = document.querySelector('#searchBtn');
 
 const cardContainerEl = document.querySelector("#card-container");
+let cardEl;
 
 // Elements for the modal
 const modal = document.getElementById("myModal");
@@ -369,13 +370,22 @@ function filterResults(userSP, userPet, userCamp, userGator, userScuba, userFee,
 // ******************************************
 cardContainerEl.addEventListener("click", function(event) {
   // event.preventDefault;
+  
   var element = event.target;
-
+  var parent = element.parentElement;
+  
+  
   if (element.matches("article")) {
-
-    location.replace("./springs.html");
+    var shortName = element.id;
+    sessionStorage.setItem("shortName", JSON.stringify(shortName));   
+    location.assign("./springs.html");
   }
-
+  if (parent.matches("article")) {
+    var shortName = parent.id;
+    sessionStorage.setItem("shortName", JSON.stringify(shortName));
+    location.assign("./springs.html");
+  }
+  
 });
 
 // ******************************************
