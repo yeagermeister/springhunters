@@ -20,11 +20,10 @@ let dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "R
 
 // weather API variables
 let locationEl = document.querySelector('#parkname');
-let location = locationEl.innerHTML
+let location = locationEl.innerHTML;
 storedParks = JSON.parse(sessionStorage.getItem(location));
 let zipcode = storedParks.zipcode;
-console.log(location);
-console.log (storedParks);
+
 
 
 // Google Maps Variables
@@ -39,9 +38,27 @@ let zipCode;
 let distance;
 let marker;
 var miles;
- console.log(miles)
 
- 
+function init() {
+  var userSelect = JSON.parse(sessionStorage.getItem(`shortName`))
+  console.log(userSelect)
+  
+  for (let i = 0; i < storedParks.length; i++) {
+    let shortName = storedParks[i].name.substring(0,4);
+    
+    if(userSelect === shortName){
+    park=storedParks[i]
+    console.log(park);
+    populateParkInfo(park)
+    console.log(shortName);
+    }
+    
+    populateDropdown();
+    initMap();
+    getWeather();
+  }
+  
+ };
 
 // This will run on page load to populate the drop dow list
 function populateDropdown() {
@@ -51,9 +68,9 @@ function populateDropdown() {
       dropdownEl.appendChild(optionEl);
     }
 };
-console.log(miles)
+
 function populateParkInfo(park) {
-  console.log(park);
+  ;
   parknameEl.textContent = park.name;
   descriptionEl.textContent = park.description;
   distanceEl.textContent = miles +"miles";
@@ -74,7 +91,7 @@ function populateParkInfo(park) {
   if (park.scuba) {
     scubaEl.textContent = "Scuba Diving Allowed"
   } else (scubaEl.textContent = "No Scuba Diving");
-  console.log(zipcode);
+  ;
 };
 
 function populatePersonalInfo(personalRating) {
@@ -190,8 +207,7 @@ for (var i = 0; i < storedParks.length; i++) {
   }
 }
 
-console.log(userCoords)
-console.log(location)
+
     // Set up the map options
 
     const mapOptions = {
@@ -208,7 +224,7 @@ console.log(location)
     var markerLoc = marker.getPosition();
     var userLoc = new google.maps.LatLng(userCoords.lat, userCoords.lon);
 
-    console.log(userLoc)
+    
     // Calculate the distance between the user's location and the marker's location
     var distance = google.maps.geometry.spherical.computeDistanceBetween(userLoc, markerLoc);
     let miles = Math.ceil(distance / 1609.344); // distance in miles, rounded up to the nearest whole mile
@@ -216,6 +232,8 @@ console.log(location)
 
 
   };
+
+
 
 // Click listeners
 // Get the correct park array from session storage when the drop down list is used
@@ -228,10 +246,6 @@ $("#dropdown").on("change", function() {
 });
 
 
-  window.onload = function() {
-    initMap();
-    getWeather();
-  };
-
   
-populateDropdown();
+
+  init();
