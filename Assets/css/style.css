@@ -222,6 +222,17 @@ width: 160px;
   color:#FFF;
 }
 
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.bg-custom {
+  background-color: #6ea5c1;
+}
 
 /**********Media query**********
 @media screen and (max-width: 800px) {
