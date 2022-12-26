@@ -40,6 +40,10 @@ padding: 5px;
 margin: 15px;
 }
 
+.springcard:hover {
+  cursor: pointer;
+}
+
 .springcard h2 {
 font-size: x-large;
 }

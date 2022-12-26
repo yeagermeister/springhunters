@@ -294,7 +294,7 @@ function populateCards() {
   for (let i = 0; i < parks.length; i++) {
     let storedParks = parks[i];
    
-    let cardEl = document.createElement('div');
+    let cardEl = document.createElement('article');
     cardEl.classList = "springcard bg-light";
     let shortName = parks[i].name.substring(0,4);
     cardEl.setAttribute("id", shortName)
@@ -364,6 +364,19 @@ function filterResults(userSP, userPet, userCamp, userGator, userScuba, userFee,
     }
 };
 
+// ******************************************
+// *******card click listener ***************
+// ******************************************
+cardContainerEl.addEventListener("click", function(event) {
+  // event.preventDefault;
+  var element = event.target;
+
+  if (element.matches("article")) {
+
+    location.replace("./springs.html");
+  }
+
+});
 
 // ******************************************
 // *******Search listener *******************
