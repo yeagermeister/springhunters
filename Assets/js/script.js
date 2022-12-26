@@ -293,12 +293,6 @@ function populateCards() {
     cardEl.classList = "springcard bg-light";
     let shortName = parks[i].name.substring(0,4);
     cardEl.setAttribute("id", shortName)
-    // cardEl.setAttribute("fees", storedParks.fees)
-    // cardEl.setAttribute("pets", storedParks.pets)
-    // cardEl.setAttribute("statepark", storedParks.statepark)
-    // cardEl.setAttribute("camping", storedParks.camping)
-    // cardEl.setAttribute("gator", storedParks.gatordanger)
-    // cardEl.setAttribute("scuba", storedParks.scuba)
 
     let headingEl = document.createElement('h2');
     headingEl.classList = "text-primary"
@@ -350,26 +344,26 @@ function filterResults(userSP, userPet, userCamp, userGator, userScuba, userFee,
       let storedParks = parks[i];
       let shortName = "#" + parks[i].name.substring(0,4);
       let cardEl = document.querySelector(shortName);
-        // if ((userSP === true) && (storedParks.statepark === true)) {
-        //     cardEl.classList = "springcard bg-light";
-        // } else {cardEl.classList = "display-none"};
+      cardEl.classList = "springcard bg-light";
 
-        // if (userPet === false && storedParks.pets === false) {
-        //   cardEl.classList = "springcard bg-light";
-        // }else {cardEl.classList = "display-none"};
-
-        // if ((userCamp === true && storedParks.camping === true)) {
-        //   cardEl.classList = "springcard bg-light";
-        // }else {cardEl.classList = "display-none"};
-        // if (userGator && storedParks.gatordanger) {
-        //   cardEl.classList = "springcard bg-light";
-        // }else {cardEl.classList = "display-none"};
-        // if (userScuba && storedParks.scuba) {
-        //   cardEl.classList = "springcard bg-light";
-        // }else {cardEl.classList = "display-none"};
-        // if ((userPet === true) && (storedParks.pets == "free")) {
-        //   cardEl.classList = "springcard bg-light";
-        // }else {cardEl.classList = "display-none"};
+        if ((userSP === true) && (storedParks.statepark === false)) {
+          cardEl.classList = "display-none";
+        }
+        if (userPet === true && storedParks.pets === false) {
+          cardEl.classList = "display-none";
+        }
+        if ((userCamp === true && storedParks.camping === false)) {
+          cardEl.classList = "display-none";
+        }
+        if (userGator === true && storedParks.gatordanger === false) {
+          cardEl.classList = "display-none";
+        }
+        if (userScuba === true && storedParks.scuba === false) {
+          cardEl.classList = "display-none";
+        }
+        if ((userFee === true) && (storedParks.fees !== "free")) {
+          cardEl.classList = "display-none";
+        }
     }
 };
 
