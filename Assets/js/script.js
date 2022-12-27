@@ -451,4 +451,22 @@ newSpring.addEventListener("click", function(event) {
 
 init();
 
+// Add an event listener to the spring cards to listen for clicks
+cardContainerEl.addEventListener('click', (event) => {
+  // Check if the clicked element is a spring card
+  if (event.target.classList.contains('spring-card')) {
+    // Get the name of the spring from the card's data attribute
+    const springName = event.target.dataset.name;
+    // Look up the star rating for the spring in local storage
+    const rating = localStorage.getItem(springName);
+    // If a rating exists, display it on the screen
+    if (rating) {
+      // Create a new element to display the rating
+      const ratingEl = document.createElement('p');
+      ratingEl.textContent = `Rating: ${rating}`;
+      // Append the rating element to the spring card
+      event.target.querySelector('.card-body').appendChild(ratingEl);
+    }
+  }
+});
 
