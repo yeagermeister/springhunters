@@ -10,7 +10,7 @@ let gatorEl = document.querySelector("#gator");
 let scubaEl = document.querySelector("#scuba");
 let ratingEl = document.querySelector("#rating");
 let noteEl = document.querySelector("#notetext");
-
+let pictureEl = document.querySelector("#picture")
 
 
 
@@ -80,6 +80,7 @@ function populateDropdown() {
 
 function populateParkInfo(park) {
   parknameEl.textContent = park.name;
+  pictureEl.setAttribute("src", park.imageUrl);
   descriptionEl.textContent = park.description;
   distanceEl.textContent = miles +"miles";
   admissionEl.textContent = park.fees;
