@@ -83,6 +83,39 @@ function populateDropdown() {
   }
 };
 
+function displayRating() {
+  console.log('displayRating() called');
+  // Get the name of the currently selected park
+  let parkName = document.getElementById('parkname').textContent;
+  // Retrieve the rating from the local storage
+  let rating = localStorage.getItem(parkName);
+  // If a rating was found, display it on the page
+  if (rating) {
+    console.log(`Rating found: ${rating}`);
+    // Get the rating elements (the radio buttons)
+    let ratingElements = document.querySelectorAll('input[name=rating]');
+    // Loop through the rating elements and set their checked attribute
+    // depending on the value of the rating
+    for (let i = 0; i < ratingElements.length; i++) {
+      if (i < rating) {
+        ratingElements[i].checked = true;
+      } else {
+        ratingElements[i].checked = false;
+      }
+    }
+  }
+  // If no rating was found, clear the rating display
+  else {
+    console.log('No rating found');
+    // Get the rating elements (the radio buttons)
+    let ratingElements = document.querySelectorAll('input[name=rating]');
+    // Loop through the rating elements and remove the checked attribute
+    for (let i = 0; i < ratingElements.length; i++) {
+      ratingElements[i].checked = false;
+    }
+  }
+}
+
 
 function populateParkInfo(park, miles) {
 
@@ -131,12 +164,6 @@ $(document).ready(function(){
       localStorage.setItem(park.name + " rating", userRating);
   }); 
 });
-
-
-
-
-
-
 
 
 function getWeather() {
