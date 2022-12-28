@@ -231,3 +231,4 @@ $("#dropdown").on("change", function() {
   
 
   init();
+  populateDropdown();
