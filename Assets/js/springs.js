@@ -58,7 +58,7 @@ function init() {
   
  };
 
-// This will run on page load to populate the drop dow list
+// This will run on page load to populate the drop down list
 function populateDropdown() {
     for (let i = 0; i < dropdownList.length; i++) {
       let optionEl = document.createElement('option');
@@ -77,6 +77,21 @@ function populateDropdown() {
       }
     }
 };
+
+$(document).ready(function(){
+  // Check Radio-box
+  $(".rating input:radio").attr("checked", false);
+
+  $('.rating input').click(function () {
+      $(".rating span").removeClass('checked');
+      $(this).parent().addClass('checked');
+  });
+
+  $('input:radio').change(
+    function(){
+      var userRating = this.value;
+  }); 
+});
 
 function populateParkInfo(park) {
   parknameEl.textContent = park.name;
