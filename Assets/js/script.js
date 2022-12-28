@@ -470,3 +470,4 @@ cardContainerEl.addEventListener('click', (event) => {
   }
 });
 
+
