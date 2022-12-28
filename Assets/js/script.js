@@ -259,8 +259,8 @@ let madisonSprings = {
     camping: false,
     gatordanger: false,
     scuba: false,
-    lat: 30.0842,
-    lng: -83.0747
+    lat: 29.7932,
+    lng: -82.9238
  };
 
 
