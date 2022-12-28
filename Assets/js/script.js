@@ -269,70 +269,76 @@ let springList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rai
 
 // Which API is this for?
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
-
+let parkLoc
  function init() {
-    // Send all park info to session storage so they can be read by springs.html
     sessionStorage.setItem(`parks`, JSON.stringify(parks));
     for (let i = 0; i < parks.length; i++){
         sessionStorage.setItem(parks[i].name, JSON.stringify(parks[i]))
+
+        
+        
     }
-
-   navigator.geolocation.getCurrentPosition(function(position) {
-
-  let userLoc = {
-     lat: position.coords.latitude,
-     lon: position.coords.longitude 
-  }
-  console.log(userLoc.lat)
-  console.log(userLoc.lon)
-  sessionStorage.setItem("userLoc", JSON.stringify(userLoc));
-});
+  
     // generate the spring cards on index.html 
     populateCards();
  };
 
-function populateCards() {
-  for (let i = 0; i < parks.length; i++) {
-    let storedParks = parks[i];
-   
-    let cardEl = document.createElement('article');
-    cardEl.classList = "springcard bg-light";
-    let shortName = parks[i].name.substring(0,4);
-    cardEl.setAttribute("id", shortName)
+ function populateCards() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    let userLoc = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-    let headingEl = document.createElement('h2');
-    headingEl.classList = "text-primary"
-    headingEl.textContent = storedParks.name
+    let parksAsLatLng = parks.map(function(park) {
+      return new google.maps.LatLng(park.lat, park.lng);
+    });
 
-    let imgEl = document.createElement('img');
-    imgEl.classList = "card-image";
-    imgEl.setAttribute("src", storedParks.imageUrl)
-    imgEl.setAttribute("alt", "image of a spring")
+    for (let i = 0; i < parks.length; i++) {
+      let storedParks = parks[i];
+     
+      let cardEl = document.createElement('article');
+      cardEl.classList = "springcard bg-light";
+      let shortName = parks[i].name.substring(0,4);
+      cardEl.setAttribute("id", shortName)
 
-    let paraEl = document.createElement('p');
-    paraEl.textContent = storedParks.description;
+      let headingEl = document.createElement('h2');
+      headingEl.classList = "text-primary"
+      headingEl.textContent = storedParks.name
 
-    let distanceEl = document.createElement('p');
-    distanceEl.textContent = " miles away."
+      let imgEl = document.createElement('img');
+      imgEl.classList = "card-image";
+      imgEl.setAttribute("src", storedParks.imageUrl)
+      imgEl.setAttribute("alt", "image of a spring")
 
-    let distanceSpanEl = document.createElement('span');
-    distanceSpanEl.classList = "distance-span";
-    distanceSpanEl.setAttribute("id", "distance-" + i);
+      let paraEl = document.createElement('p');
+      paraEl.textContent = storedParks.description;
 
-    let spanEl = document.createElement('span');
-    spanEl.classList = "wicon"
-    spanEl.setAttribute("id", "weather-" + i)
+      let distanceEl = document.createElement('p');
+      distanceEl.setAttribute("id", "park" + [i])
 
-    cardContainerEl.appendChild(cardEl);
-    cardEl.appendChild(headingEl);
-    cardEl.appendChild(imgEl);
-    cardEl.appendChild(paraEl);
-    cardEl.appendChild(distanceEl);
-    distanceEl.appendChild(distanceSpanEl);
-    distanceEl.appendChild(spanEl);
-  }
-};
+      let distanceSpanEl = document.createElement('span');
+      distanceSpanEl.classList = "distance-span";
+      distanceSpanEl.setAttribute("id", "distance-" + i);
 
+      let distanceInMeters = google.maps.geometry.spherical.computeDistanceBetween(userLoc, parksAsLatLng[i]);
+      let distanceInMiles = distanceInMeters / 1609.344;
+      let rounded = Math.round(distanceInMiles)
+
+     
+      distanceSpanEl.textContent = rounded + ' miles away';
+
+      let spanEl = document.createElement('span');
+      spanEl.classList = "wicon"
+      spanEl.setAttribute("id", "weather-" + i)
+
+      cardContainerEl.appendChild(cardEl);
+      cardEl.appendChild(headingEl);
+      cardEl.appendChild(imgEl);
+      cardEl.appendChild(paraEl);
+      cardEl.appendChild(distanceEl);
+      distanceEl.appendChild(distanceSpanEl);
+      distanceEl.appendChild(spanEl);
+    }
+  });
+}
 function filterResults(userSP, userPet, userCamp, userGator, userScuba, userFee, zipCode) {
   
     for (let i = 0; i < parks.length; i++) {
