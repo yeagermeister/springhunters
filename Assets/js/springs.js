@@ -60,16 +60,33 @@ function init() {
   
  };
 
-// This will run on page load to populate the drop dow list
+// This will run on page load to populate the drop down list
 function populateDropdown() {
-    for (let i = 0; i < dropdownList.length; i++) {
-      let optionEl = document.createElement('option');
-      optionEl.textContent = dropdownList[i];
+  for (let i = 0; i < dropdownList.length; i++) {
+    let optionEl = document.createElement('option');
+    optionEl.textContent = dropdownList[i];
+    
+    // Check if the option already exists in the dropdown menu
+    let options = dropdownEl.options;
+    let optionExists = false;
+    for (let j = 0; j < options.length; j++) {
+      if (options[j].text === optionEl.text) {
+        optionExists = true;
+        break;
+      }
+    }
+    
+    // If the option does not exist, add it to the dropdown menu
+    if (!optionExists) {
       dropdownEl.appendChild(optionEl);
     }
+  }
 };
 
+
 function populateParkInfo(park, miles) {
+
+
   ;
   parknameEl.textContent = park.name;
   descriptionEl.textContent = park.description;
