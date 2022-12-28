@@ -281,7 +281,9 @@ let parkLoc
   
     // generate the spring cards on index.html 
     populateCards();
+    getweather();
  };
+
 
  function populateCards() {
   navigator.geolocation.getCurrentPosition(function(position) {
@@ -327,8 +329,11 @@ let parkLoc
 
       let spanEl = document.createElement('span');
       spanEl.classList = "wicon"
-      spanEl.setAttribute("id", "weather-" + i)
-
+      spanEl.setAttribute("id", "weather" + i)
+      
+      let imageEl = document.createElement('img');
+      
+      getweather(storedParks.zipcode , imageEl);
       cardContainerEl.appendChild(cardEl);
       cardEl.appendChild(headingEl);
       cardEl.appendChild(imgEl);
@@ -336,9 +341,52 @@ let parkLoc
       cardEl.appendChild(distanceEl);
       distanceEl.appendChild(distanceSpanEl);
       distanceEl.appendChild(spanEl);
+      spanEl.appendChild(imageEl);
     }
   });
 }
+
+
+
+  // Send a GET request to the RapidAPI weather API
+  function getweather(zipcode, imageEl) {
+    
+    
+      const API_KEY = '4a9c9446f7msh1bdc5860de01184p135179jsne7c04d560051';
+      const API_HOST = 'weatherapi-com.p.rapidapi.com';
+    
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': API_KEY,
+          'X-RapidAPI-Host': API_HOST
+        }
+      };
+    
+        
+    
+      console.log(zipcode)
+  fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${zipcode}`, options)
+    .then(response => response.json())
+    .then(data => {
+      // Extract the relevant data from the response
+      
+    
+      const iconUrl = data.current.condition.icon;
+      imageEl.setAttribute("src", iconUrl);
+      // Update the HTML elements on the page
+      
+      
+     // document.getElementById('weather' + i).src = iconUrl;
+      
+    })
+    .catch(err => console.error(err));
+
+  };
+
+
+
+
 function filterResults(userSP, userPet, userCamp, userGator, userScuba, userFee, zipCode) {
   
     for (let i = 0; i < parks.length; i++) {
