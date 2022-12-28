@@ -10,13 +10,13 @@ let gatorEl = document.querySelector("#gator");
 let scubaEl = document.querySelector("#scuba");
 let ratingEl = document.querySelector("#rating");
 let noteEl = document.querySelector("#notetext");
-var miles;
+
 
 
 
 let park = "Wekiwa Springs State Park";
 
-let dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Madison Springs", "Royal Springs", "Bob's River Place"];
+let dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Madison Springs", "Royal Springs", "Bobs River Place"];
 
 // weather API variables
 let locationEl = document.querySelector('#parkname');
@@ -37,90 +37,48 @@ var map = mapId;
 let zipCode;
 let distance;
 let marker;
-
+var miles;
 
 function init() {
+  populateDropdown();
   var userSelect = JSON.parse(sessionStorage.getItem(`shortName`))
   console.log(userSelect)
   
   for (let i = 0; i < storedParks.length; i++) {
     let shortName = storedParks[i].name.substring(0,4);
-    
     if(userSelect === shortName){
-    park=storedParks[i]
-    console.log(park);
-    populateParkInfo(park, miles)
-    console.log(shortName);
+    park = storedParks[i]
+    populateParkInfo(park)
     }
+    
+
     initMap();
-    populateDropdown();
     getWeather();
-    console.log(miles)
   }
   
  };
 
-// This will run on page load to populate the drop down list
+// This will run on page load to populate the drop dow list
 function populateDropdown() {
-  for (let i = 0; i < dropdownList.length; i++) {
-    let optionEl = document.createElement('option');
-    optionEl.textContent = dropdownList[i];
-    
-    // Check if the option already exists in the dropdown menu
-    let options = dropdownEl.options;
-    let optionExists = false;
-    for (let j = 0; j < options.length; j++) {
-      if (options[j].text === optionEl.text) {
-        optionExists = true;
-        break;
+    for (let i = 0; i < dropdownList.length; i++) {
+      let optionEl = document.createElement('option');
+      optionEl.textContent = dropdownList[i];
+      let options = dropdownEl.options;
+      let optionExists = false;
+      for (let j = 0; j < options.length; j++) {
+        if (options[j].text === optionEl.text) {
+          optionExists = true;
+          break;
+        }
+      }
+      // If the option does not exist, add it to the dropdown menu
+      if (!optionExists) {
+        dropdownEl.appendChild(optionEl);
       }
     }
-    
-    // If the option does not exist, add it to the dropdown menu
-    if (!optionExists) {
-      dropdownEl.appendChild(optionEl);
-    }
-  }
 };
 
-function displayRating() {
-  console.log('displayRating() called');
-  // Get the name of the currently selected park
-  let parkName = document.getElementById('parkname').textContent;
-  // Retrieve the rating from the local storage
-  let rating = localStorage.getItem(parkName);
-  // If a rating was found, display it on the page
-  if (rating) {
-    console.log(`Rating found: ${rating}`);
-    // Get the rating elements (the radio buttons)
-    let ratingElements = document.querySelectorAll('input[name=rating]');
-    // Loop through the rating elements and set their checked attribute
-    // depending on the value of the rating
-    for (let i = 0; i < ratingElements.length; i++) {
-      if (i < rating) {
-        ratingElements[i].checked = true;
-      } else {
-        ratingElements[i].checked = false;
-      }
-    }
-  }
-  // If no rating was found, clear the rating display
-  else {
-    console.log('No rating found');
-    // Get the rating elements (the radio buttons)
-    let ratingElements = document.querySelectorAll('input[name=rating]');
-    // Loop through the rating elements and remove the checked attribute
-    for (let i = 0; i < ratingElements.length; i++) {
-      ratingElements[i].checked = false;
-    }
-  }
-}
-
-
-function populateParkInfo(park, miles) {
-
-
-  ;
+function populateParkInfo(park) {
   parknameEl.textContent = park.name;
   descriptionEl.textContent = park.description;
   distanceEl.textContent = miles +"miles";
@@ -141,7 +99,6 @@ function populateParkInfo(park, miles) {
   if (park.scuba) {
     scubaEl.textContent = "Scuba Diving Allowed"
   } else (scubaEl.textContent = "No Scuba Diving");
-  ;
 };
 
 function populatePersonalInfo(personalRating) {
@@ -164,6 +121,12 @@ $(document).ready(function(){
       localStorage.setItem(park.name + " rating", userRating);
   }); 
 });
+
+
+
+
+
+
 
 
 function getWeather() {
@@ -198,54 +161,89 @@ function getWeather() {
     .catch(err => console.error(err));
 }
 
+// Call the getWeather function when the page loads
+// function updateWeather(newZipcode) {
+//   sessionStorage.setItem('zipcode', newZipcode);
+//   getWeather();
+
+//   // Loop through the array of objects
+//   for (var i = 0; i < storedParks.length; i++) {
+//     // Check if the element's value matches the title of the current object
+//     if (parkName.value == storedParks[i].name) {console.log(parkName.value, storedParks[i].name) 
+//       // If the values match, retrieve the value property of the object
+//       let parkLoc = storedParks[i].zipcode;
+//       // You can now use the value variable in your code
+//       return parkLoc
+//     }}
+// }
 
 
+  // Loop through the array of objects
   for (var i = 0; i < storedParks.length; i++) {
-    
+    // Check if the element's value matches the title of the current object
     if (parkName.value == storedParks[i].name) {console.log(parkName.value, storedParks[i].name) 
-      
+      // If the values match, retrieve the value property of the object
       let parkLoc = storedParks[i].zipcode;
-      
+      // You can now use the value variable in your code
       
     }}
 
 
-
+// Initialize and add the map
 var mapId = document.getElementById("map");
 var parkName = document.getElementById("parkname");
 var storedParks = JSON.parse(sessionStorage.getItem(`parks`));
-
+//const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 var parkLat;
 var parkLng;
 var map = mapId;
 
 
+  // Initialize the map
   function initMap() {
+
+// Loop through the array of objects
 for (var i = 0; i < storedParks.length; i++) {
+  // Check if the element's value matches the title of the current object
   if (parkName.innerHTML == storedParks[i].name) {
+    // If the values match, retrieve the value property of the object
     var parkLat = storedParks[i].lat;
     var parkLng = storedParks[i].lng;
+    // You can now use the value variable in your code
+    
   }
 }
+
+
+    // Set up the map options
+
     const mapOptions = {
       zoom: 10,
       center: new google.maps.LatLng(parkLat, parkLng)
     };
+    // Create the map
     const map = new google.maps.Map(mapId, mapOptions);
+    // Add a marker to the map at the specified coordinates
     const marker = new google.maps.Marker({
       position: {lat: parkLat, lng: parkLng},
       map: map
     });
-
     var markerLoc = marker.getPosition();
-    var userLoc = new google.maps.LatLng(userCoords.lat, userCoords.lon);
-    var distance = google.maps.geometry.spherical.computeDistanceBetween(userLoc, markerLoc);
-    let miles = Math.ceil(distance / 1609.344); 
-    console.log(`Distance: ${miles} miles`); 
+    // var userLoc = new google.maps.LatLng(userCoords.lat, userCoords.lon);
+
+    
+    // Calculate the distance between the user's location and the marker's location
+    // var distance = google.maps.geometry.spherical.computeDistanceBetween(userLoc, markerLoc);
+    // let miles = Math.ceil(distance / 1609.344); // distance in miles, rounded up to the nearest whole mile
+    // console.log(`Distance: ${miles} miles`); 
+
+
   };
 
 
 
+// Click listeners
+// Get the correct park array from session storage when the drop down list is used
 $("#dropdown").on("change", function() {
   let value = dropdownEl.options[dropdownEl.selectedIndex].value;
   park = JSON.parse(sessionStorage.getItem(value));
@@ -258,4 +256,3 @@ $("#dropdown").on("change", function() {
   
 
   init();
-  populateDropdown();
