@@ -58,7 +58,7 @@ function init() {
   
  };
 
-// This will run on page load to populate the drop dow list
+// This will run on page load to populate the drop down list
 function populateDropdown() {
     for (let i = 0; i < dropdownList.length; i++) {
       let optionEl = document.createElement('option');
@@ -78,29 +78,85 @@ function populateDropdown() {
     }
 };
 
+
+// Add an event listener to the dropdown menu that listens for the 'change' event
+dropdownEl.addEventListener("change", function() {
+  // Get the selected park's name from the dropdown menu
+  const selectedPark = dropdownEl.value;
+
+  // Retrieve the user's rating for the selected park from localStorage
+  const userRating = localStorage.getItem(selectedPark);
+
+  // If the user has not rated this park, set the star display to 0
+  if (userRating === null) {
+    // Update the star display to show 0 stars
+  }
+  // If the user has rated this park, update the star display to show the user's rating
+  else {
+    // Update the star display to show the user's rating
+  }
+});
+
 function populateParkInfo(park) {
+  // Retrieve the user's rating for the selected park from local storage
+  const savedString = park.name + " rating";
+  console.log(savedString);
+  console.log(park);
+  let savedRating = JSON.parse(localStorage.getItem(savedString));
+  console.log(savedRating);
+  // If there is no rating saved in local storage for the selected park, set savedRating to 0
+  if (savedRating === null) {
+    savedRating = 0;
+  }
+  // Loop through the star images
+  for (let i = 1; i <= 5; i++) {
+    // Get the element for the current star
+    const starEl = document.getElementById("str" + i).parentElement;
+    console.log(starEl);
+    // If the index of the current star is less than or equal to the user's rating, add the 'checked' class to the element
+    if (i <= savedRating) {
+      starEl.classList.add("checked");
+    }
+    // If the index of the current star is greater than the user's rating, remove the 'checked' class from the element
+    else {
+      starEl.classList.remove("checked");
+    }
+  }
+
+  // Update the other elements with the information for the selected park
   parknameEl.textContent = park.name;
-  pictureEl.setAttribute("src", park.imageUrl);
-  descriptionEl.textContent = park.description;
-  distanceEl.textContent = miles +"miles";
-  admissionEl.textContent = park.fees;
-  zipcode = park.zipcode
+  pictureEl.src = park.imageUrl;
+
   if (park.pets) {
-    petsEl.textContent = "Pet Friendly"
-  } else (petsEl.textContent = "Pet's not allowed");
+    petsEl.textContent = "Pet Friendly";
+  } else {
+    petsEl.textContent = "Pets not allowed";
+  }
   if (park.statepark) {
-    stateparkEl.textContent = "This is a state park"
-  } else (stateparkEl.textContent = "This is not a state park");
+    stateparkEl.textContent = "This is a state park";
+  } else {
+    stateparkEl.textContent = "This is not a state park";
+  }
   if (park.gatordanger) {
-    gatorEl.textContent = "Beware of the gators"
-  } else (gatorEl.textContent = "No Gator Danger");
+    gatorEl.textContent = "Beware of the gators";
+  } else {
+    gatorEl.textContent = "No gator danger";
+  }
   if (park.camping) {
-    campingEl.textContent = "Camping is Allowed"
-  } else (campingEl.textContent = "No Camping");
+    campingEl.textContent = "Camping is allowed";
+  } else {
+    campingEl.textContent = "No camping";
+  }
   if (park.scuba) {
-    scubaEl.textContent = "Scuba Diving Allowed"
-  } else (scubaEl.textContent = "No Scuba Diving");
-};
+    scubaEl.textContent = "Scuba diving is allowed";
+  } else {
+    scubaEl.textContent = "No scuba diving";
+  }
+  descriptionEl.textContent = park.description;
+  distanceEl.textContent = miles + " miles";
+  admissionEl.textContent = park.fees;
+}
+
 
 function populatePersonalInfo(personalRating) {
   ratingEl.value = personalRating;
