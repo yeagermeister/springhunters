@@ -493,10 +493,10 @@ newSpring.addEventListener("click", function(event) {
   } else {pet = "false"};
   let address = addressM.value;
 
-  let newspring = 'mailto:address@dmail.com?subject=Please add this new spring to the website&body=This would work awesome if we had a database we could write to.  THis request would be pending approval to be added by a site administrator.  But since we are only newbs, you get this webpage showing that we know how to grab the input from the form.  Spring Name: ' + spring + '     Description: ' + desc + '     Camping:  ' + camp + '     Pet Friendly: ' + pet + '     Address: ' + address;
+  let newspring = [spring, desc, camp, pet, address];
 
   sessionStorage.setItem("newspring", JSON.stringify(newspring));
-  document.location.replace("./newspring.html")
+  document.location.assign("./newspring.html");
 });
 
 // ******************************************
