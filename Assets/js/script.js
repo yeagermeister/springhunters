@@ -271,25 +271,24 @@ let springList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rai
 // Which API is this for?
 const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 let parkLoc
- function init() {
-    sessionStorage.setItem(`parks`, JSON.stringify(parks));
-    for (let i = 0; i < parks.length; i++){
-        sessionStorage.setItem(parks[i].name, JSON.stringify(parks[i]))
 
-        
-        
-    }
-  
-    // generate the spring cards on index.html 
-    populateCards();
-    getweather();
+
+
+
+function init() {
+  sessionStorage.setItem(`parks`, JSON.stringify(parks));
+  for (let i = 0; i < parks.length; i++){
+    sessionStorage.setItem(parks[i].name, JSON.stringify(parks[i]))
+  }
+  // generate the spring cards on index.html 
+  populateCards();
+  getweather();
  };
 
 
- function populateCards() {
+function populateCards() {
   navigator.geolocation.getCurrentPosition(function(position) {
     let userLoc = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-console.log(userLoc)
     let parksAsLatLng = parks.map(function(park) {
       return new google.maps.LatLng(park.lat, park.lng);
     });
@@ -345,48 +344,30 @@ console.log(userLoc)
       spanEl.appendChild(imageEl);
     }
   });
-}
+};
 
 
 
   // Send a GET request to the RapidAPI weather API
-  function getweather(zipcode, imageEl) {
+function getweather(zipcode, imageEl) {    
+  const API_KEY = '4a9c9446f7msh1bdc5860de01184p135179jsne7c04d560051';
+  const API_HOST = 'weatherapi-com.p.rapidapi.com';
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': API_KEY,
+      'X-RapidAPI-Host': API_HOST
+    }
+  };
     
-    
-      const API_KEY = '4a9c9446f7msh1bdc5860de01184p135179jsne7c04d560051';
-      const API_HOST = 'weatherapi-com.p.rapidapi.com';
-    
-      const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': API_KEY,
-          'X-RapidAPI-Host': API_HOST
-        }
-      };
-    
-        
-    
-      console.log(zipcode)
   fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${zipcode}`, options)
     .then(response => response.json())
     .then(data => {
-      // Extract the relevant data from the response
-      
-    
       const iconUrl = data.current.condition.icon;
       imageEl.setAttribute("src", iconUrl);
-      // Update the HTML elements on the page
-      
-      
-     // document.getElementById('weather' + i).src = iconUrl;
-      
     })
     .catch(err => console.error(err));
-
-  };
-
-
-
+};
 
 function filterResults(userSP, userPet, userCamp, userGator, userScuba, userFee, zipCode) {
   
@@ -424,7 +405,6 @@ function filterResults(userSP, userPet, userCamp, userGator, userScuba, userFee,
 // *******card click listener ***************
 // ******************************************
 cardContainerEl.addEventListener("click", function(event) {
-  // event.preventDefault;
   
   var element = event.target;
   var parent = element.parentElement;
@@ -440,10 +420,9 @@ cardContainerEl.addEventListener("click", function(event) {
   if (parent.matches("article")) {
     var shortName = parent.id;
     sessionStorage.setItem("shortName", JSON.stringify(shortName));
-    sessionStorage.setItem('distance', element.childNodes[3].childNodes[0].textContent);
+    sessionStorage.setItem('distance', parent.childNodes[3].childNodes[0].textContent);
     location.assign("./springs.html");
   }
-  
 });
 
 // ******************************************
@@ -482,6 +461,7 @@ window.addEventListener("click", function(event) {
   }
 });
 
+// lister to add a new spring
 newSpring.addEventListener("click", function(event) {
   event.preventDefault;
  
