@@ -10,6 +10,7 @@ const submitEl = document.querySelector('#searchBtn');
 
 const cardContainerEl = document.querySelector("#card-container");
 let cardEl;
+let rounded = 0
 
 // Elements for the modal
 const modal = document.getElementById("myModal");
@@ -288,7 +289,7 @@ let parkLoc
  function populateCards() {
   navigator.geolocation.getCurrentPosition(function(position) {
     let userLoc = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
+console.log(userLoc)
     let parksAsLatLng = parks.map(function(park) {
       return new google.maps.LatLng(park.lat, park.lng);
     });
@@ -322,7 +323,7 @@ let parkLoc
 
       let distanceInMeters = google.maps.geometry.spherical.computeDistanceBetween(userLoc, parksAsLatLng[i]);
       let distanceInMiles = distanceInMeters / 1609.344;
-      let rounded = Math.round(distanceInMiles)
+      rounded = Math.round(distanceInMiles)
 
      
       distanceSpanEl.textContent = rounded + ' miles away';
@@ -432,11 +433,14 @@ cardContainerEl.addEventListener("click", function(event) {
   if (element.matches("article")) {
     var shortName = element.id;
     sessionStorage.setItem("shortName", JSON.stringify(shortName));   
+    sessionStorage.setItem('distance', element.childNodes[3].childNodes[0].textContent);
+    
     location.assign("./springs.html");
   }
   if (parent.matches("article")) {
     var shortName = parent.id;
     sessionStorage.setItem("shortName", JSON.stringify(shortName));
+    sessionStorage.setItem('distance', element.childNodes[3].childNodes[0].textContent);
     location.assign("./springs.html");
   }
   
