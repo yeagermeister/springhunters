@@ -35,7 +35,7 @@ const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 var parkLoc;
 var map = mapId;
 let zipCode;
-let distance;
+let distance = sessionStorage.getItem("distance");
 let marker;
 var miles;
 
@@ -153,7 +153,7 @@ function populateParkInfo(park) {
     scubaEl.textContent = "No scuba diving";
   }
   descriptionEl.textContent = park.description;
-  distanceEl.textContent = miles + " miles";
+  distanceEl.textContent = distance;
   admissionEl.textContent = park.fees;
 }
 
@@ -289,7 +289,7 @@ for (var i = 0; i < storedParks.length; i++) {
     // var userLoc = new google.maps.LatLng(userCoords.lat, userCoords.lon);
 
     
-    // Calculate the distance between the user's location and the marker's location
+    // // Calculate the distance between the user's location and the marker's location
     // var distance = google.maps.geometry.spherical.computeDistanceBetween(userLoc, markerLoc);
     // let miles = Math.ceil(distance / 1609.344); // distance in miles, rounded up to the nearest whole mile
     // console.log(`Distance: ${miles} miles`); 
