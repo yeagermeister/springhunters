@@ -11,11 +11,11 @@ let scubaEl = document.querySelector("#scuba");
 let ratingEl = document.querySelector("#rating");
 let noteEl = document.querySelector("#notetext");
 let pictureEl = document.querySelector("#picture")
+//dom selectors
 
-
-
+//starts off the dropdown selector on Wekiwa springs, as it is the first item
 let park = "Wekiwa Springs State Park";
-
+//declares values for the dropdown list
 let dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Madison Springs", "Royal Springs", "Bobs River Place"];
 
 // weather API variables
@@ -31,28 +31,28 @@ var mapId = document.getElementById("map");
 var parkName = document.getElementById("parkname");
 var storedParks = JSON.parse(sessionStorage.getItem(`parks`));
 var userCoords = JSON.parse(sessionStorage.getItem(`userLoc`));
-const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
 var parkLoc;
 var map = mapId;
 let zipCode;
 let distance = sessionStorage.getItem("distance");
 let marker;
-var miles;
 
+//function that initializes on page startup
 function init() {
+//populates the dropdown menu using shortname id's
   populateDropdown();
   var userSelect = JSON.parse(sessionStorage.getItem(`shortName`))
-  console.log(userSelect)
-  
+  //utilizes every park in the storedparks array
   for (let i = 0; i < storedParks.length; i++) {
     let shortName = storedParks[i].name.substring(0,4);
     if(userSelect === shortName){
     park = storedParks[i]
+    //populates the information of selected park based on user choice
     populateParkInfo(park)
     }
-    
-
+    //initializes the map feature
     initMap();
+    //initializes the weather feature
     getWeather();
   }
   
@@ -96,7 +96,7 @@ dropdownEl.addEventListener("change", function() {
     // Update the star display to show the user's rating
   }
 });
-
+//populates the card displaying information about the user selected park
 function populateParkInfo(park) {
   // Retrieve the user's rating for the selected park from local storage
   const savedString = park.name + " rating";
@@ -157,7 +157,7 @@ function populateParkInfo(park) {
   admissionEl.textContent = park.fees;
 }
 
-
+//creates a rating system that is personal to each user
 function populatePersonalInfo(personalRating) {
   ratingEl.value = personalRating;
 };
@@ -185,7 +185,7 @@ $(document).ready(function(){
 
 
 
-
+//utilizes the weather api from rapidapi to display weather
 function getWeather() {
   const API_KEY = '4a9c9446f7msh1bdc5860de01184p135179jsne7c04d560051';
   const API_HOST = 'weatherapi-com.p.rapidapi.com';
@@ -273,7 +273,6 @@ for (var i = 0; i < storedParks.length; i++) {
 
 
     // Set up the map options
-
     const mapOptions = {
       zoom: 10,
       center: new google.maps.LatLng(parkLat, parkLng)
@@ -285,14 +284,6 @@ for (var i = 0; i < storedParks.length; i++) {
       position: {lat: parkLat, lng: parkLng},
       map: map
     });
-    var markerLoc = marker.getPosition();
-    // var userLoc = new google.maps.LatLng(userCoords.lat, userCoords.lon);
-
-    
-    // // Calculate the distance between the user's location and the marker's location
-    // var distance = google.maps.geometry.spherical.computeDistanceBetween(userLoc, markerLoc);
-    // let miles = Math.ceil(distance / 1609.344); // distance in miles, rounded up to the nearest whole mile
-    // console.log(`Distance: ${miles} miles`); 
 
 
   };
@@ -311,5 +302,5 @@ $("#dropdown").on("change", function() {
 
 
   
-
+//calls the init function on page startup
   init();
