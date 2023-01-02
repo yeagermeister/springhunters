@@ -1,12 +1,13 @@
+/* custom background gradient */
 .gradient-custom {
   background: linear-gradient(to right, rgba(141, 219, 238, 0.5), rgba(58, 202, 238, 0.5))
 }
-
+/* colours list items on the springs list */
 .springs-list li {
   color: black;
   list-style-type: none;
 }
-
+/* ensures the map displays */
 #map{
   height:400px;
   width:100%;
