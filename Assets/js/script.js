@@ -268,8 +268,8 @@ let parks = [wekiwaSprings, silverSprings, rainbowSprings, rockSpringsRun, ginni
 let springList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Madison Springs", "Royal Springs", "Bobs River Place"];
 
 // Which API is this for?
-const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
-let parkLoc
+//const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
+//let parkLoc
  function init() {
     sessionStorage.setItem(`parks`, JSON.stringify(parks));
     for (let i = 0; i < parks.length; i++){
