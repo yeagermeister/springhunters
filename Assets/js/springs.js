@@ -19,12 +19,18 @@ let park = "Wekiwa Springs State Park";
 let dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Madison Springs", "Royal Springs", "Bobs River Place"];
 
 // weather API variables
-let locationEl = document.querySelector('#parkname');
-let location = locationEl.innerHTML;
-storedParks = JSON.parse(sessionStorage.getItem(location));
-let zipcode = storedParks.zipcode;
+// let locationEl = document.querySelector('#parkname');
+// let location = locationEl.innerHTML;
+// storedParks = JSON.parse(sessionStorage.getItem(location));
+// let zipcode = storedParks.zipcode;
 
-
+// var mapId = document.getElementById("map");
+// var parkName = document.getElementById("parkname");
+// var storedParks = JSON.parse(sessionStorage.getItem(`parks`));
+// //const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
+// var parkLat;
+// var parkLng;
+// var map = mapId;
 
 // Google Maps Variables
 var mapId = document.getElementById("map");
@@ -197,9 +203,21 @@ function getWeather() {
       'X-RapidAPI-Host': API_HOST
     }
   };
+  for (var i = 0; i < storedParks.length; i++) {
+    // Check if the element's value matches the title of the current object
+    if (parkName.value == storedParks[i].name) {console.log(parkName.value, storedParks[i].name) 
+      // If the values match, retrieve the value property of the object
+    let myzip = storedParks[i].zipcode;
+    console.log(myzip);
+    let locationEl = document.querySelector('#parkname');
+    let location = locationEl.innerHTML;
+    storedParks = JSON.parse(sessionStorage.getItem(location));
+    const myURL = "https://weatherapi-com.p.rapidapi.com/forecast.json?q=" + myzip;
+    };
 
   // Send a GET request to the RapidAPI weather API
-  fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${zipcode}`, options)
+
+  fetch(myURL, options)
     .then(response => response.json())
     .then(data => {
       // Extract the relevant data from the response
@@ -217,44 +235,7 @@ function getWeather() {
     })
     .catch(err => console.error(err));
 }
-
-// Call the getWeather function when the page loads
-// function updateWeather(newZipcode) {
-//   sessionStorage.setItem('zipcode', newZipcode);
-//   getWeather();
-
-//   // Loop through the array of objects
-//   for (var i = 0; i < storedParks.length; i++) {
-//     // Check if the element's value matches the title of the current object
-//     if (parkName.value == storedParks[i].name) {console.log(parkName.value, storedParks[i].name) 
-//       // If the values match, retrieve the value property of the object
-//       let parkLoc = storedParks[i].zipcode;
-//       // You can now use the value variable in your code
-//       return parkLoc
-//     }}
-// }
-
-
-  // Loop through the array of objects
-  for (var i = 0; i < storedParks.length; i++) {
-    // Check if the element's value matches the title of the current object
-    if (parkName.value == storedParks[i].name) {console.log(parkName.value, storedParks[i].name) 
-      // If the values match, retrieve the value property of the object
-      let parkLoc = storedParks[i].zipcode;
-      // You can now use the value variable in your code
-      
-    }}
-
-
-// Initialize and add the map
-var mapId = document.getElementById("map");
-var parkName = document.getElementById("parkname");
-var storedParks = JSON.parse(sessionStorage.getItem(`parks`));
-//const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
-var parkLat;
-var parkLng;
-var map = mapId;
-
+}
 
   // Initialize the map
   function initMap() {
@@ -267,7 +248,6 @@ for (var i = 0; i < storedParks.length; i++) {
     var parkLat = storedParks[i].lat;
     var parkLng = storedParks[i].lng;
     // You can now use the value variable in your code
-    
   }
 }
 
