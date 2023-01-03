@@ -106,7 +106,7 @@ margin-inline-end: 0px;
 
 main {
   background-repeat: no-repeat;
-  background-size: 0% 0% 50% 50%;
+  background-size: cover;
   background-image: url("../../Assets/images/background-image.jpg");
   background-color:#c5dfec;
 }
@@ -371,7 +371,7 @@ main {
     width: 240px;
   }
 }
-  
+
 @media screen and (max-width: 1200px) {
   .springs-list li {
     color: black;
@@ -513,4 +513,105 @@ main {
   #zipCode {
   width: 160px;
   }
+
+  @media screen and (max-width: 500px) {
+    header {
+      width: 150px;
+      height: 40px;
+      font-size: small;
+    }
+  
+    h1 {
+      width: 390px;
+      height: 100px;
+      word-spacing: .5px;
+      white-space: nowrap;
+      font-size: 20px;
+  }
+  
+  main {
+    width: 490px;
+    margin-bottom: 10px;
+    background-image: url(/Assets/images/background-image.jpg);
+  }
+    
+    body {
+      width: 490px;
+      font-size: small;
+      background-color:#6ea5c1
+    }
+  
+    .springs-container {
+      margin-right: 500px;
+    }
+  
+    .springcard {
+      width: 250px;
+      margin-left: 60px;
+      margin-top: 80px;
+    }
+  
+    .mySearch {
+      width: 300px;
+      margin-top: 30px;
+      margin-left: 50px;
+    }
+  
+    .card-image {
+      width: 240px;
+    }
+  }
+
+
+@media screen and (max-width: 400px) {
+  header {
+    width: 100px;
+    height: 40px;
+    font-size: small;
+  }
+
+  h1 {
+    width: 390px;
+    height: 100px;
+    word-spacing: .5px;
+    white-space: nowrap;
+    font-size: 20px;
 }
+
+main {
+  width: 390px;
+  margin-bottom: 10px;
+  background-image: url(/Assets/images/background-image.jpg);
+}
+  
+  body {
+    width: 390px;
+    font-size: small;
+    background-color:#6ea5c1
+  }
+
+  .springs-container {
+    margin-right: 400px;
+  }
+
+  .springcard {
+    width: 250px;
+    margin-left: 50px;
+    margin-top: 80px;
+  }
+
+  .mySearch {
+    width: 300px;
+    margin-top: 30px;
+    margin-left: 50px;
+  }
+
+  .card-image {
+    width: 240px;
+  }
+}
+
+};
+
+}
+
