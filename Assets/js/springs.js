@@ -22,7 +22,6 @@ let dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "R
 let locationEl = document.querySelector('#parkname');
 let location = locationEl.innerHTML;
 storedParks = JSON.parse(sessionStorage.getItem(location));
-let zipcode = storedParks.zipcode;
 
 
 
@@ -33,29 +32,33 @@ var storedParks = JSON.parse(sessionStorage.getItem(`parks`));
 var userCoords = JSON.parse(sessionStorage.getItem(`userLoc`));
 var parkLoc;
 var map = mapId;
-let zipCode;
 let distance = sessionStorage.getItem("distance");
 let marker;
-
+var miles;
+var zipcode;
 //function that initializes on page startup
 function init() {
 //populates the dropdown menu using shortname id's
   populateDropdown();
+  
   var userSelect = JSON.parse(sessionStorage.getItem(`shortName`))
+  
   //utilizes every park in the storedparks array
   for (let i = 0; i < storedParks.length; i++) {
     let shortName = storedParks[i].name.substring(0,4);
     if(userSelect === shortName){
     park = storedParks[i]
+    zipcode = park.zipcode
     //populates the information of selected park based on user choice
     populateParkInfo(park)
     }
     //initializes the map feature
     initMap();
     //initializes the weather feature
-    getWeather();
+    
+   
   }
-  
+  getWeather();
  };
 
 // This will run on page load to populate the drop down list
@@ -100,10 +103,7 @@ dropdownEl.addEventListener("change", function() {
 function populateParkInfo(park) {
   // Retrieve the user's rating for the selected park from local storage
   const savedString = park.name + " rating";
-  console.log(savedString);
-  console.log(park);
   let savedRating = JSON.parse(localStorage.getItem(savedString));
-  console.log(savedRating);
   // If there is no rating saved in local storage for the selected park, set savedRating to 0
   if (savedRating === null) {
     savedRating = 0;
@@ -112,7 +112,6 @@ function populateParkInfo(park) {
   for (let i = 1; i <= 5; i++) {
     // Get the element for the current star
     const starEl = document.getElementById("str" + i).parentElement;
-    console.log(starEl);
     // If the index of the current star is less than or equal to the user's rating, add the 'checked' class to the element
     if (i <= savedRating) {
       starEl.classList.add("checked");
@@ -202,6 +201,7 @@ function getWeather() {
   fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${zipcode}`, options)
     .then(response => response.json())
     .then(data => {
+      console.log(zipcode)
       // Extract the relevant data from the response
       const cityName = data.location.name;
       const temperature = data.current.temp_f;
@@ -236,15 +236,7 @@ function getWeather() {
 
 
   // Loop through the array of objects
-  for (var i = 0; i < storedParks.length; i++) {
-    // Check if the element's value matches the title of the current object
-    if (parkName.value == storedParks[i].name) {console.log(parkName.value, storedParks[i].name) 
-      // If the values match, retrieve the value property of the object
-      let parkLoc = storedParks[i].zipcode;
-      // You can now use the value variable in your code
-      
-    }}
-
+  
 
 // Initialize and add the map
 var mapId = document.getElementById("map");
@@ -295,12 +287,13 @@ for (var i = 0; i < storedParks.length; i++) {
 $("#dropdown").on("change", function() {
   let value = dropdownEl.options[dropdownEl.selectedIndex].value;
   park = JSON.parse(sessionStorage.getItem(value));
+  zipcode = park.zipcode
   populateParkInfo(park);
-  getWeather();
+  getWeather(zipcode);
   initMap();
 });
 
 
   
 //calls the init function on page startup
-  init();
+init();
