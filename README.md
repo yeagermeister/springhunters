@@ -1,5 +1,9 @@
-# springhunters
-a simple app to find springs and food nearby
+# Springhunters
+A simple app to find springs and food nearby
 
-site mock up
-https://docs.google.com/presentation/d/1YyXQxfhcK3OruoXQNxiTRwInkBpB5CUWCKcq66ORqzs/edit?usp=sharing
+## Image of the app
+![A user can find a spring or swimming hole they would like to visit](./Assets/images/screenshot.png)
+
+## Link to app
+
+[Springhunters](https://yeagermeister.github.io/springhunters/)
