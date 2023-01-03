@@ -218,23 +218,6 @@ function getWeather() {
     .catch(err => console.error(err));
 }
 
-// Call the getWeather function when the page loads
-// function updateWeather(newZipcode) {
-//   sessionStorage.setItem('zipcode', newZipcode);
-//   getWeather();
-
-//   // Loop through the array of objects
-//   for (var i = 0; i < storedParks.length; i++) {
-//     // Check if the element's value matches the title of the current object
-//     if (parkName.value == storedParks[i].name) {console.log(parkName.value, storedParks[i].name) 
-//       // If the values match, retrieve the value property of the object
-//       let parkLoc = storedParks[i].zipcode;
-//       // You can now use the value variable in your code
-//       return parkLoc
-//     }}
-// }
-
-
   // Loop through the array of objects
   
 
