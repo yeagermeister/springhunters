@@ -19,18 +19,9 @@ let park = "Wekiwa Springs State Park";
 let dropdownList = ["Wekiwa Springs State Park", "Silver Springs State Park", "Rainbow Springs State Park", "Rock Springs Run State Reserve", "Ginnie Springs", "Blue Spring State Park", "DeLeon Springs State Park", "Fanning Springs State Park", "Manatee Springs State Park", "Weeki Wachee Springs State Park", "Ichetucknee Springs State Park", "Madison Springs", "Royal Springs", "Bobs River Place"];
 
 // weather API variables
-// let locationEl = document.querySelector('#parkname');
-// let location = locationEl.innerHTML;
-// storedParks = JSON.parse(sessionStorage.getItem(location));
-// let zipcode = storedParks.zipcode;
-
-// var mapId = document.getElementById("map");
-// var parkName = document.getElementById("parkname");
-// var storedParks = JSON.parse(sessionStorage.getItem(`parks`));
-// //const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
-// var parkLat;
-// var parkLng;
-// var map = mapId;
+let locationEl = document.querySelector('#parkname');
+let location = locationEl.innerHTML;
+storedParks = JSON.parse(sessionStorage.getItem(location));
 
 // Google Maps Variables
 var mapId = document.getElementById("map");
@@ -39,29 +30,33 @@ var storedParks = JSON.parse(sessionStorage.getItem(`parks`));
 var userCoords = JSON.parse(sessionStorage.getItem(`userLoc`));
 var parkLoc;
 var map = mapId;
-let zipCode;
 let distance = sessionStorage.getItem("distance");
 let marker;
-
+var miles;
+var zipcode;
 //function that initializes on page startup
 function init() {
 //populates the dropdown menu using shortname id's
   populateDropdown();
+  
   var userSelect = JSON.parse(sessionStorage.getItem(`shortName`))
+  
   //utilizes every park in the storedparks array
   for (let i = 0; i < storedParks.length; i++) {
     let shortName = storedParks[i].name.substring(0,4);
     if(userSelect === shortName){
     park = storedParks[i]
+    zipcode = park.zipcode
     //populates the information of selected park based on user choice
     populateParkInfo(park)
     }
     //initializes the map feature
     initMap();
     //initializes the weather feature
-    getWeather();
+    
+   
   }
-  
+  getWeather();
  };
 
 // This will run on page load to populate the drop down list
@@ -106,10 +101,7 @@ dropdownEl.addEventListener("change", function() {
 function populateParkInfo(park) {
   // Retrieve the user's rating for the selected park from local storage
   const savedString = park.name + " rating";
-  console.log(savedString);
-  console.log(park);
   let savedRating = JSON.parse(localStorage.getItem(savedString));
-  console.log(savedRating);
   // If there is no rating saved in local storage for the selected park, set savedRating to 0
   if (savedRating === null) {
     savedRating = 0;
@@ -118,7 +110,6 @@ function populateParkInfo(park) {
   for (let i = 1; i <= 5; i++) {
     // Get the element for the current star
     const starEl = document.getElementById("str" + i).parentElement;
-    console.log(starEl);
     // If the index of the current star is less than or equal to the user's rating, add the 'checked' class to the element
     if (i <= savedRating) {
       starEl.classList.add("checked");
@@ -220,6 +211,7 @@ function getWeather() {
   fetch(myURL, options)
     .then(response => response.json())
     .then(data => {
+      console.log(zipcode)
       // Extract the relevant data from the response
       const cityName = data.location.name;
       const temperature = data.current.temp_f;
@@ -235,7 +227,17 @@ function getWeather() {
     })
     .catch(err => console.error(err));
 }
-}
+  // Loop through the array of objects
+  
+
+// Initialize and add the map
+var mapId = document.getElementById("map");
+var parkName = document.getElementById("parkname");
+var storedParks = JSON.parse(sessionStorage.getItem(`parks`));
+//const API_KEY = 'AIzaSyAUPFIpucG-X584hME5DFs-4Yu28ny2vVk';
+var parkLat;
+var parkLng;
+var map = mapId;
 
   // Initialize the map
   function initMap() {
@@ -275,12 +277,13 @@ for (var i = 0; i < storedParks.length; i++) {
 $("#dropdown").on("change", function() {
   let value = dropdownEl.options[dropdownEl.selectedIndex].value;
   park = JSON.parse(sessionStorage.getItem(value));
+  zipcode = park.zipcode
   populateParkInfo(park);
-  getWeather();
+  getWeather(zipcode);
   initMap();
 });
 
 
   
 //calls the init function on page startup
-  init();
+init();
